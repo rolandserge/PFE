@@ -1,0 +1,18 @@
+import Layout from "../layouts/container"
+import { Outlet } from "react-router-dom";
+
+
+   
+
+export default function Home() {
+
+     
+
+     return (
+          <>
+               <Layout>
+                    <Outlet />
+               </Layout>
+          </>
+     )
+}
