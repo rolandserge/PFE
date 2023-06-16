@@ -34,15 +34,10 @@ const useStyles = createStyles((theme) => ({
        textTransform: 'uppercase',
      },
      titreFormation: {
-          // border: "1px solid",
           margin: "0 0.8em 0.8em 0.8em",
           fontSize: "1.5em",
           fontWeight: 700,
      },
-     calendrierContainer: {
-          // height: "50vh",
-          // border: "1px solid"
-     }
 }));
 
 export default function Dashboad() {

@@ -1,12 +1,10 @@
 import { useState } from "react"
 import "../styles/components/layout.css"
 import { createStyles, Navbar, Group, getStylesRef } from '@mantine/core';
-import { AiOutlineSetting } from 'react-icons/ai'
-import { BiMessageDetail } from "react-icons/bi"
 import { RxDashboard } from "react-icons/rx"
 import { BsCalendar3 } from "react-icons/bs"
 import { BiArchive } from "react-icons/bi"
-import { CiRepeat, CiSquarePlus, CiRainbow, CiLogout } from "react-icons/ci"
+import { CiRepeat, CiRainbow, CiLogout } from "react-icons/ci"
 import { Link, useNavigate } from "react-router-dom";
 
 
