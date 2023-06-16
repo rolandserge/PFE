@@ -5,7 +5,7 @@ import FormationPage from './pages/formation';
 import Message from './pages/message'
 import Login from './pages/login'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Calendrier from './pages/calendrier';
 
 
   const router = createBrowserRouter([
@@ -29,6 +29,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
         {
           path: "/message",
           element: <Message />,
+        },
+        {
+          path: '/calendrier',
+          element: <Calendrier />
         },
       ],
     }

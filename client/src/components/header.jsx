@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
    }));
 
 
-export default function Headers() {
+export default function Headers({title}) {
 
      const { classes } = useStyles();
 
@@ -50,7 +50,7 @@ export default function Headers() {
                          <div className={classes.inner}>
                               <Group>
                                    <div>
-                                        Tableau de bord
+                                        <h2>{title}</h2>
                                    </div>
                               </Group>
                               <Group className={classes.groupRight}>

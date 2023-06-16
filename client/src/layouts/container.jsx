@@ -8,7 +8,6 @@ import { BsCalendar3 } from "react-icons/bs"
 import { BiArchive } from "react-icons/bi"
 import { CiRepeat, CiSquarePlus, CiRainbow, CiLogout } from "react-icons/ci"
 import { Link, useNavigate } from "react-router-dom";
-import Headers from "../components/header";
 
 
 const useStyles = createStyles((theme) => ({
@@ -79,11 +78,8 @@ const data = [
      { link: '/acceuil', label: 'Tableau de bord', icon: RxDashboard },
      { link: '/formation', label: 'Mes formations', icon: BiArchive },
      { link: '#', label: 'Catégories', icon: BiArchive },
-     { link: '#', label: 'Creer une formation', icon: CiSquarePlus },
      { link: '#', label: 'Reunions', icon: CiRainbow },
-     { link: '#', label: 'Calendrier', icon: BsCalendar3 },
-     { link: '/message', label: 'Messages', icon: BiMessageDetail },
-     { link: '#', label: 'Parametre', icon: AiOutlineSetting },
+     { link: '/calendrier', label: 'Calendrier', icon: BsCalendar3 },
 ];
 
 
@@ -112,7 +108,7 @@ export default function Layout({ children }) {
      return (
           <div className="container_home">
                <aside>
-                    <Navbar height="100vh" width={{ sm: 260 }} p="md" className={classes.aside}>
+                    <Navbar height="100vh" width={{ sm: 230 }} p="md" className={classes.aside}>
                          <Navbar.Section grow>
                               <Group className={classes.header} position="apart">
                                    <span>E.Learning</span>
@@ -136,9 +132,6 @@ export default function Layout({ children }) {
                     </Navbar>
                </aside>
                <main>
-                    <div>
-                         <Headers/>
-                    </div>
                     {
                          children
                     }
