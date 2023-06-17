@@ -11,8 +11,11 @@ import {
      Group,
      Button,
    } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+
+     const navigation = useNavigate()
 
      return (
           <div className="login_page">
@@ -37,7 +40,7 @@ export default function Login() {
                                         Mot de passe oublié ?
                                         </Anchor>
                                    </Group>
-                                   <Button fullWidth mt="xl" color='yellow'>
+                                   <Button fullWidth mt="xl" color='yellow' onClick={() => navigation('/acceuil')}>
                                         Sign in
                                    </Button>
                               </Paper>
