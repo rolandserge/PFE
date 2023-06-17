@@ -1,5 +1,5 @@
 import './App.css'
-import Home from './pages/Home';
+import Home from './pages/home';
 import Dashboad from './pages/dashbord';
 import FormationPage from './pages/formation';
 import Message from './pages/message'
