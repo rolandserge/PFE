@@ -1,27 +1,53 @@
 .container-detail-formation {
-     margin: 1.5em;
+     margin: 1em;
      display: flex;
+     justify-content: space-between;
 }
 
 .container-detail-formation .detail-formation-gauche {
-     border: 1px solid;
+     width: 68%;
 }
 
 .container-detail-formation .video-container .video-card {
      height: 65vh;
-     width: 65%;
+     width: 100%;
+     /* border: 1px solid; */
      margin: 1em 0;
-     border: 1px solid;
+     border-radius: 5px;
 }
 
 .container-detail-formation .description-formation {
-     /* border: 1px solid; */
      margin: 1em 0;
-     width: 80%;
+     width: 90%;
 }
 .container-detail-formation .description-formation .titre-description {
      margin: 0.3em 0;
      font-size: 1.4em;
      text-decoration: underline;
+}
 
+.container-detail-formation .container-formation-droite {
+     width: 31%;
+     background: #f6f6f6;
+     padding: 0.9em;
+}
+.container-detail-formation .container-formation-droite .titre {
+     font-size: 1.2em;
+}
+
+.container-detail-formation .container-formation-droite .card-content {
+     margin-top: 1em;
+}
+.container-detail-formation .container-formation-droite .card-content .card-video {
+     display: flex;
+     margin: 0.3em 0;
+     justify-content: space-between;
+}
+.container-detail-formation .container-formation-droite .card-content .card-video .video {
+     overflow: hidden;
+     width: 38%;
+     border-radius: 5px;
+}
+.container-detail-formation .container-formation-droite .card-content .card-video .titre-formation {
+     width: 60%;
 }

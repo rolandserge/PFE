@@ -30,7 +30,7 @@ export default function DetailFormation() {
                          </div>
                          <div className="video-container">
                               <div className="video-card">
-                                   <video width="100%" height="100%" controls muted>
+                                   <video width="100%" style={{ borderRadius: "4px"}} height="100%" controls muted>
                                         <source src={video} type="video/mp4" />
                                    </video>
                               </div>
@@ -55,16 +55,53 @@ export default function DetailFormation() {
                          </div>
                     </div>
                     <div className="container-formation-droite">
-                         <span>Playlist de la formation</span>
-                         <div className="playlist">
+                         <span className="titre">Playlist de la formation</span>
                               <div className="card-content">
                                    <div className="card-video">
-                                        <video width="100%" height="100%" controls muted>
-                                             <source src={video} type="video/mp4" />
-                                        </video>
+                                        <div className="video">
+                                             <video width="100%" height="100%" style={{ borderRadius: "4px"}} muted>
+                                                  <source src={video} type="video/mp4" />
+                                             </video>
+                                        </div>
+                                        <div className="titre-formation">
+                                             <p>Titre de la formation prise en main  de flutter et figma</p>
+                                             {/* <span>Video courte - 25min</span> */}
+                                        </div>
+                                   </div>
+                                   <div className="card-video">
+                                        <div className="video">
+                                             <video width="100%" height="100%" muted style={{ borderRadius: "4px"}}>
+                                                  <source src={video} type="video/mp4" />
+                                             </video>
+                                        </div>
+                                        <div className="titre-formation">
+                                             <p>Titre de la formation</p>
+                                             <span>Video courte - 25min</span>
+                                        </div>
+                                   </div>
+                                   <div className="card-video">
+                                        <div className="video">
+                                             <video width="100%" height="100%" muted>
+                                                  <source src={video} type="video/mp4" />
+                                             </video>
+                                        </div>
+                                        <div className="titre-formation">
+                                             <p>Titre de la formation</p>
+                                             <span>Video courte - 25min</span>
+                                        </div>
+                                   </div>
+                                   <div className="card-video">
+                                        <div className="video">
+                                             <video width="100%" height="100%" muted>
+                                                  <source src={video} type="video/mp4" />
+                                             </video>
+                                        </div>
+                                        <div className="titre-formation">
+                                             <p>Titre de la formation</p>
+                                             <span>Video courte - 25min</span>
+                                        </div>
                                    </div>
                               </div>
-                         </div>
                     </div>
                </div>
           </div>
