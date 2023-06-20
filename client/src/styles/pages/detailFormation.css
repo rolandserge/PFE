@@ -16,38 +16,26 @@
      border-radius: 5px;
 }
 
-.container-detail-formation .description-formation {
+.container-detail-formation .description-objectif {
      margin: 1em 0;
-     width: 90%;
+     display: flex;
+     justify-content: space-between;
 }
-.container-detail-formation .description-formation .titre-description {
+.container-detail-formation .description-objectif .container-description {
+     width: 48%;
+}
+.container-detail-formation .description-objectif .container-objectif {
+     width: 48%;
+}
+.container-detail-formation .description-objectif .title {
      margin: 0.3em 0;
      font-size: 1.4em;
      text-decoration: underline;
 }
 
-.container-detail-formation .container-formation-droite {
+.container-detail-formation section {
      width: 31%;
+     border-radius: 5px 5px 0 0;
      background: #f6f6f6;
      padding: 0.9em;
-}
-.container-detail-formation .container-formation-droite .titre {
-     font-size: 1.2em;
-}
-
-.container-detail-formation .container-formation-droite .card-content {
-     margin-top: 1em;
-}
-.container-detail-formation .container-formation-droite .card-content .card-video {
-     display: flex;
-     margin: 0.3em 0;
-     justify-content: space-between;
-}
-.container-detail-formation .container-formation-droite .card-content .card-video .video {
-     overflow: hidden;
-     width: 38%;
-     border-radius: 5px;
-}
-.container-detail-formation .container-formation-droite .card-content .card-video .titre-formation {
-     width: 60%;
 }
