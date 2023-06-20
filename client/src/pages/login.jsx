@@ -29,7 +29,7 @@ export default function Login() {
                               align="center"
                               sx={() => ({fontWeight: 900 })}
                               >
-                                   Bienvenu !
+                                   Bienvenue !
                               </Title>
                               <Paper withBorder shadow="md" p={30} mt={30} radius="md">
                                    <TextInput label="Email" placeholder="webturba@gmail.com" required />

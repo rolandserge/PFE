@@ -7,6 +7,7 @@ const useStyles = createStyles((theme) => ({
      header: {
        paddingLeft: theme.spacing.md,
        paddingRight: theme.spacing.md,
+       background: '#f6f6f6'
      },
    
      inner: {

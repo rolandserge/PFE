@@ -1,0 +1,27 @@
+.container-detail-formation {
+     margin: 1.5em;
+     display: flex;
+}
+
+.container-detail-formation .detail-formation-gauche {
+     border: 1px solid;
+}
+
+.container-detail-formation .video-container .video-card {
+     height: 65vh;
+     width: 65%;
+     margin: 1em 0;
+     border: 1px solid;
+}
+
+.container-detail-formation .description-formation {
+     /* border: 1px solid; */
+     margin: 1em 0;
+     width: 80%;
+}
+.container-detail-formation .description-formation .titre-description {
+     margin: 0.3em 0;
+     font-size: 1.4em;
+     text-decoration: underline;
+
+}

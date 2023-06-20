@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => ({
      },
 
      aside: {
-          background: "orange",
+          background: "#f6f6f6",
           position: "fixed",
           top: 0,
      },
@@ -56,17 +56,17 @@ const useStyles = createStyles((theme) => ({
      linkIcon: {
        ref: getStylesRef('icon'),
      //   color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
-     color: "white",
+     color: "black",
      fontSize: "1.8em",
        marginRight: theme.spacing.sm,
      },
    
      linkActive: {
        '&, &:hover': {
-         backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-         color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+         backgroundColor: 'orange',
+         color: 'white',
          [`& .${getStylesRef('icon')}`]: {
-           color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+           color: "white",
          },
        },
      },

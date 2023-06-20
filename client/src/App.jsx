@@ -6,6 +6,7 @@ import Message from './pages/message'
 import Login from './pages/login'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Calendrier from './pages/calendrier';
+import DetailFormation from './pages/detail';
 
 
   const router = createBrowserRouter([
@@ -20,7 +21,6 @@ import Calendrier from './pages/calendrier';
         {
           path: "/acceuil",
           element: <Dashboad />,
-          index: true,
         },
         {
           path: "/formation",
@@ -34,6 +34,10 @@ import Calendrier from './pages/calendrier';
           path: '/calendrier',
           element: <Calendrier />
         },
+        {
+          path: '/formation/:detail',
+          element: <DetailFormation />
+        }
       ],
     }
   ]);
