@@ -1,0 +1,28 @@
+.container-creer-formation {
+     margin: 1em;
+}
+.container-creer-formation .banner-container {
+     height: 45vh;
+     background-image: url("../../assets/creer.jpg");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     padding: 1.5em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     border-radius: 10px;
+}
+.container-creer-formation .banner-container .titre h1 {
+     color: white;
+}
+.container-creer-formation .banner-container .description {
+     margin: 1em 0;
+     width: 50%;
+}
+
+.container-creer-formation .creer-content .indication-titre {
+     margin: 0.9em 0;
+     font-size: 1.4em;
+     font-weight: 600;
+}

@@ -75,6 +75,7 @@ const useStyles = createStyles((theme) => ({
 const data = [
      { link: '/acceuil', label: 'Tableau de bord', icon: RxDashboard },
      { link: '/formation', label: 'Mes formations', icon: BiArchive },
+     { link: '/creer-formation', label: 'Créer formation', icon: BiArchive },
      { link: '#', label: 'Catégories', icon: BiArchive },
      { link: '#', label: 'Reunions', icon: CiRainbow },
      { link: '/calendrier', label: 'Calendrier', icon: BsCalendar3 },

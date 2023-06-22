@@ -11,24 +11,16 @@
 .container-detail-formation .video-container .video-card {
      height: 65vh;
      width: 100%;
-     /* border: 1px solid; */
      margin: 1em 0;
      border-radius: 5px;
 }
 
 .container-detail-formation .description-objectif {
      margin: 1em 0;
-     display: flex;
-     justify-content: space-between;
 }
-.container-detail-formation .description-objectif .container-description {
-     width: 48%;
-}
-.container-detail-formation .description-objectif .container-objectif {
-     width: 48%;
-}
+
 .container-detail-formation .description-objectif .title {
-     margin: 0.3em 0;
+     margin: 0.5em 0;
      font-size: 1.4em;
      text-decoration: underline;
 }
@@ -38,4 +30,7 @@
      border-radius: 5px 5px 0 0;
      background: #f6f6f6;
      padding: 0.9em;
+}
+.container-detail-formation section .card-content {
+     margin-top: 0.6em;
 }

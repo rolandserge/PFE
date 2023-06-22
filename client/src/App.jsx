@@ -7,6 +7,7 @@ import Login from './pages/login'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Calendrier from './pages/calendrier';
 import DetailFormation from './pages/detail';
+import CreerFormation from './pages/creerFormation';
 
 
   const router = createBrowserRouter([
@@ -37,7 +38,11 @@ import DetailFormation from './pages/detail';
         {
           path: '/formation/:detail',
           element: <DetailFormation />
-        }
+        },
+        {
+          path: "/creer-formation",
+          element: <CreerFormation />
+        },
       ],
     }
   ]);
