@@ -1,0 +1,19 @@
+.coverCardFormation {
+    height: 30vh;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.titre-formation {
+
+    margin-top: 0.55em;
+
+    p {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

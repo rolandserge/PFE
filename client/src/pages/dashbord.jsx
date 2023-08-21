@@ -1,10 +1,9 @@
 import { createStyles, Group, Paper, SimpleGrid, Text, rem } from '@mantine/core';
 import { FaUsers } from "react-icons/fa"
-import "../styles/pages/dashbord.css"
 import { BiArchive } from "react-icons/bi"
 import Formation from "../components/formation";
 import Headers from "../components/header"
-import Calendrier from '../components/calendrier';
+// import Calendrier from '../components/calendrier';
 
 
 const useStyles = createStyles((theme) => ({
@@ -97,11 +96,11 @@ export default function Dashboad() {
                               <Formation />
                          </div>
                     </section>
-                    <aside className="side-dashbord">
+                    {/* <aside className="side-dashbord">
                          <div className={classes.calendrierContainer}>
                               <Calendrier />
                          </div>
-                    </aside>
+                    </aside> */}
                </div>
           </div>
      )

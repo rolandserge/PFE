@@ -1,0 +1,27 @@
+.login_page {
+     min-height: 100vh;
+     max-height: 100vh;
+
+     .container_login {
+          display: flex;
+          align-items: center;
+          height: 100vh;
+          justify-content: left;
+
+          .image_card {
+               width: 50%;
+               height: 100vh;
+               overflow: hidden;
+
+               .image {
+                    width: 100%;
+                    height: 100%;
+               }
+          }
+          .login_card {
+               width: 45%;
+          }
+         
+     }
+
+}

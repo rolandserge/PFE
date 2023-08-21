@@ -1,6 +1,6 @@
 import { createStyles, Header, Avatar, Text, Group, rem, TextInput} from '@mantine/core';
 import { IoIosSearch } from "react-icons/io"
-import User from "../assets/utilisateur.png"
+import User from "/assets/utilisateur.png"
 
 
 const useStyles = createStyles((theme) => ({

@@ -1,16 +1,25 @@
-import { createStyles, SimpleGrid, Card, Image, Text, Badge} from '@mantine/core';
-import image from "../assets/login.jpg"
-import image1 from "../assets/connexion.jpg"
+import { createStyles, SimpleGrid, Card, rem, Button, Text } from '@mantine/core';
+import login from "/assets/login.jpg"
+import image1 from "/assets/connexion.jpg"
 import { useNavigate } from "react-router-dom"
+
 
 const useStyles = createStyles((theme) => ({
 
      card: {
-       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+       backgroundColor: "white",    
      },
-   
+     coverCard : {
+          height: "30vh",
+          overflow: "hidden",
+     },
+     cover : {
+          height:"10vh",
+          width: "100%",
+     },
      title: {
        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+       margin: "0.1em 0 1em 0"
      },
    
 }));
@@ -24,59 +33,173 @@ export default function Formation() {
 
      return (
           <SimpleGrid cols={3} m='1em' breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-               <Card withBorder padding="lg" radius="md" className={classes.card} onClick={() => navigate('/formation/detail')}>
-                    <Card.Section mb="sm">
-                         <Image src={image} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Delevoppemnt web</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card}>
+                    <div className="coverCardFormation">
+                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                                   },
+                                   })}
+                         >
+                              Regarder la vidéo
+                         </Button>
+                    </div>
                </Card>
-               <Card withBorder padding="lg" radius="md" className={classes.card}>
-                    <Card.Section mb="sm">
-                         <Image src={image} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Delevoppemnt web</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card}>
+                    <div className="coverCardFormation">
+                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                                   },
+                              })}
+                         >
+                              Regarder la vidéo
+                         </Button>
+                    </div>
                </Card>
-               <Card withBorder padding="lg" radius="md" className={classes.card}>
-                    <Card.Section mb="sm">
-                         <Image src={image1} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Delevoppemnt web</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card}>
+                    <div className="coverCardFormation">
+                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                              },
+                              })}
+                         >
+                              Regarder la vidéo
+                         </Button>
+                    </div>
                </Card>
-               <Card withBorder padding="lg" radius="md" className={classes.card}>
-                    <Card.Section mb="sm">
-                         <Image src={image} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Delevoppemnt web</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card} >
+                    <div className="coverCardFormation">
+                         <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                                   },
+                              })}
+                         >
+                              Regader la vidéo
+                         </Button>
+                    </div>
                </Card>
-               <Card withBorder padding="lg" radius="md" className={classes.card}>
-                    <Card.Section mb="sm">
-                         <Image src={image1} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Delevoppemnt web</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card}>
+                    <div className="coverCardFormation">
+                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                                   },
+                              })}
+                         >
+                              Regarder la vidéo
+                         </Button>
+                    </div>
                </Card>
-               <Card withBorder padding="lg" radius="md" className={classes.card}>
-                    <Card.Section mb="sm">
-                         <Image src={image} alt={"Image d'illustration de la formation"} height={180} />
-                    </Card.Section>
-                    <Badge>Web Strategies</Badge>
-                    <Text fw={700} className={classes.title} mt="xs">
-                         Comment securisé un site web de A a Z
+               <Card className={classes.card}>
+                    <div className="coverCardFormation">
+                         <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                    </div>
+                    <div className='titre-formation'>
+                         <p>Authentification Next.JS/Laravel</p>
+                    </div>
+                    <Text className={classes.title}>
+                         Comment securisé un site web de A a Z Lorem,
+                         Vel atque veritatis in qui totam
                     </Text>
+                    <div>
+                         <Button
+                              onClick={() => navigate('/formation/detail')}
+                              fullWidth
+                              styles={(theme) => ({
+                                   root: {
+                                   backgroundColor: "gray",
+                                        '&:not([data-disabled])': theme.fn.hover({
+                                             backgroundColor: '#000',
+                                   }),
+                                   },
+                              })}
+                         >
+                              Regarder la vidéo
+                         </Button>
+                    </div>
                </Card>
           </SimpleGrid>
      )

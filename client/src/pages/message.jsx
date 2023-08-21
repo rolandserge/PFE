@@ -1,5 +1,5 @@
 import Headers from '../components/header'
-import User from "../assets/utilisateur.png"
+import User from "/assets/utilisateur.png"
 import { Navbar, Group, Text, Avatar, ScrollArea, createStyles } from '@mantine/core';
 
 

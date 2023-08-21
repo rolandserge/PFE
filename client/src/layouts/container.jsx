@@ -1,5 +1,4 @@
 import { useState } from "react"
-import "../styles/components/layout.css"
 import { createStyles, Navbar, Group, getStylesRef } from '@mantine/core';
 import { RxDashboard } from "react-icons/rx"
 import { BsCalendar3 } from "react-icons/bs"
@@ -19,7 +18,7 @@ const useStyles = createStyles((theme) => ({
      },
 
      aside: {
-          background: "#f6f6f6",
+          background: "#ffff",
           position: "fixed",
           top: 0,
      },
@@ -76,9 +75,10 @@ const data = [
      { link: '/acceuil', label: 'Tableau de bord', icon: RxDashboard },
      { link: '/formation', label: 'Mes formations', icon: BiArchive },
      { link: '/creer-formation', label: 'Créer formation', icon: BiArchive },
-     { link: '#', label: 'Catégories', icon: BiArchive },
+     { link: '#', label: 'Departement', icon: BiArchive },  
+     { link: '/module', label: 'Module', icon: BiArchive },
      { link: '#', label: 'Reunions', icon: CiRainbow },
-     { link: '/calendrier', label: 'Calendrier', icon: BsCalendar3 },
+     // { link: '/calendrier', label: 'Calendrier', icon: BsCalendar3 },
 ];
 
 

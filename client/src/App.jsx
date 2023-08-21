@@ -1,13 +1,17 @@
-import './App.css'
+import './_app.scss'
 import Home from './pages/home';
 import Dashboad from './pages/dashbord';
-import FormationPage from './pages/formation';
+import FormationPage from './pages/Cours/formation';
 import Message from './pages/message'
 import Login from './pages/login'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Calendrier from './pages/calendrier';
-import DetailFormation from './pages/detail';
-import CreerFormation from './pages/creerFormation';
+import DetailFormation from './pages/Cours/detail';
+import CreerFormation from './pages/Cours/creerFormation';
+import CreateCours from './pages/Cours/createCours';
+import Module from './pages/Module/module';
+import CreateModule from './pages/Module/createModule';
+import CoursModule from './pages/Module/coursModule';
 
 
   const router = createBrowserRouter([
@@ -42,6 +46,22 @@ import CreerFormation from './pages/creerFormation';
         {
           path: "/creer-formation",
           element: <CreerFormation />
+        },
+        {
+          path: "/creer-formation/page",
+          element: <CreateCours />
+        },
+        {
+          path: '/module',
+          element: <Module />
+        },
+        {
+          path: "/creer-module",
+          element: <CreateModule />
+        },
+        {
+          path: "/module/cours",
+          element: <CoursModule />
         },
       ],
     }

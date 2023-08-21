@@ -1,5 +1,4 @@
-import '../styles/pages/auth.css'
-import LoginImage from "../assets/connexion.jpg"
+import LoginImage from "/assets/connexion.jpg"
 import {
      TextInput,
      PasswordInput,
