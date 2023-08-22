@@ -94,7 +94,7 @@ export default function FormationPage() {
 
      return (
           <div>
-               <Headers title="Formations" />
+               <Headers title="Mes cours" />
                <div className="categorie-containers">
                     <div className={classes.header}>
                          <div className={classes.links}>

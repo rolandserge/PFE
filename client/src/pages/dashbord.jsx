@@ -75,7 +75,7 @@ export default function Dashboad() {
                                         <Paper withBorder p="md" radius="md">
                                              <Group position="apart">
                                                   <Text size="xs" color="dimmed" className={classes.title}>
-                                                       Formations
+                                                       Cours
                                                   </Text>
                                                   <BiArchive className={classes.icon} size="1.4rem" stroke={1.5} />
                                              </Group>
@@ -91,7 +91,7 @@ export default function Dashboad() {
                          </div>
                          <div className="formation-container">
                               <div className={classes.titreFormation}>
-                                   <p>Mes formations</p>
+                                   <p>Mes cours</p>
                               </div>
                               <Formation />
                          </div>

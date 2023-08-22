@@ -57,11 +57,11 @@ export default function CreerFormation() {
 
      return (
           <div>
-               <Headers title="Creer une formation" />
+               <Headers title="Création de cours" />
                <div className="container-creer-formation">
                     <div className="banner-container">
                          <div className="titre">
-                              <h1>Créer une formation</h1>
+                              <h1>Créer un cours</h1>
                          </div>
                          <div className="description">
                               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -89,7 +89,7 @@ export default function CreerFormation() {
                                         },
                                    })}
                                    >
-                                 Créer une formation
+                                 Créer un cours
                               </Button>
                          </div>
                     </div>
