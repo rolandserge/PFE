@@ -1,11 +1,10 @@
 import Headers from "../../components/header";
-// import "../styles/pages/detailFormation.css"
 import { Avatar, Text, Group } from '@mantine/core';
 import User from "/assets/utilisateur.png"
-import { BsCalendar3 } from "react-icons/bs"
+import { PiVideoLight } from "react-icons/pi"
+import { BsCalendar3, BsCheck2Circle  } from "react-icons/bs"
 import video from "/assets/video.mp4"
-import { Accordion, List, ThemeIcon} from '@mantine/core';
-import { BsCheck2Circle } from "react-icons/bs"
+import { Accordion, List, rem, ThemeIcon} from '@mantine/core';
 
 
 
@@ -58,7 +57,7 @@ export default function DetailFormation() {
                                              </p>
                                         </div>
                                    </div>
-                                   {/* <div className="container-objectif">
+                                   <div className="container-objectif">
                                         <div className="title">
                                              <p>Objectifs</p>
                                         </div>
@@ -80,32 +79,190 @@ export default function DetailFormation() {
                                                   <List.Item>Run tests to make sure your changes do not break the build</List.Item>
                                              </List>
                                         </div>
-                                   </div> */}
+                                   </div>
                               </div>
                          </div>
                     </div>
-                    {/* <section>
-                         <span className="titre">Playlist de la formation</span>
+                    <section>
+                         <span className="titre">Contenu du cours</span>
                               <div className="card-content">
-                                   <Accordion transitionDuration={100}>
-                                        <Accordion.Item value="customization">
-                                             <Accordion.Control>Customization</Accordion.Control>
-                                             <Accordion.Panel>Colors, fonts, shadows and many other parts are customizable to fit your design needs</Accordion.Panel>
-                                        </Accordion.Item>
+                                   <Accordion 
+                                        styles={{
+                                             item: {
+                                                  // styles added to all items
+                                                  background: "white",
+                                                  border: `${rem(1)} solid #ededed`,
+                                                  fontSize: "0.9em",
+                                                  cursor: "pointer",
+                                                 borderRadius: "4px",
+                                             },
 
+                                             chevron: {
+                                                  // styles added to chevron when it should rotate
+                                                  fontWeight: "bold",
+                                                  '&[data-rotate]': {
+                                                  transform: 'rotate(-90deg)',
+                                                  },
+                                             },
+                                             }}
+                                        transitionDuration={100}
+                                   >
+                                        <Accordion.Item value="customization">
+                                             <Accordion.Control fw="bold" color="red">Customization</Accordion.Control>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                        </Accordion.Item>
                                         <Accordion.Item value="flexibility">
                                              <Accordion.Control>Flexibility</Accordion.Control>
-                                             <Accordion.Panel>Configure components appearance and behavior with vast amount of settings or overwrite any part of component styles</Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
                                         </Accordion.Item>
-
                                         <Accordion.Item value="Titre de la formation">
                                              <Accordion.Control>Titre de la formation</Accordion.Control>
-                                             <Accordion.Panel>Ring appears only when user</Accordion.Panel>
-                                             <Accordion.Panel>With new :focus-visible pseudo-clas</Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance</p>         
+                                                  </div>
+                                             </Accordion.Panel>
+                                             <Accordion.Panel>
+                                                  <div className="accordeon">
+                                                       <div className="video-image">
+                                                            <PiVideoLight fontSize="1.5em"/>
+                                                       </div>
+                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                  </div>
+                                             </Accordion.Panel>
                                         </Accordion.Item>
                                    </Accordion>
                               </div>
-                    </section> */}
+                    </section>
                </div>
           </div>
      )

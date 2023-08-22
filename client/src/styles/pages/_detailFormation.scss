@@ -1,40 +1,62 @@
 .container-detail-formation {
-     margin: 2% 2.5%;
-}
+     margin: 1em 0.5em;
+     display: flex;
+     justify-content: space-between;
 
-.container-detail-formation .detail-formation-gauche {
-}
+     .detail-formation-gauche {
+          width: 67.5%;
 
-.container-detail-formation .video-container {
-     .title-formation {
-          text-transform: uppercase;
-          margin-top: 1em;
-          font-weight: 600;
+          .video-container {
+               .title-formation {
+                    text-transform: uppercase;
+                    margin-top: 1em;
+                    font-weight: 600;
+               }
+               .video-card {
+                   height: 68vh;
+                   width: 100%;
+                   margin: 1.5em 0;
+                   border-radius: 5px;
+              }
+               .description-objectif {
+                    margin: 1em 0;
+
+                    .title {
+                         margin: 0.5em 0;
+                         font-size: 1.4em;
+                         text-decoration: underline;
+                    }
+               }
+
+          }
      }
-     .video-card {
-         height: 68vh;
-         width: 100%;
-         margin: 1.5em 0;
-         border-radius: 5px;
-    }
+
+     section {
+          width: 31%;
+          border-radius: 5px 5px 0 0;
+          // background: $blanc;
+          // padding: 0.9em;
+
+          .card-content {
+               margin-top: 0.6em;
+          }
+          .accordeon {
+               // border: 1px solid;
+               display: flex;
+               justify-content: space-between;
+
+               .video-image {
+                    // border: 1px solid;
+                    width: 10%;
+               }
+               p {
+                    // border: 1px solid;
+                    width: 88%;
+               }
+          }
+     }
 }
 
-.container-detail-formation .description-objectif {
-     margin: 1em 0;
-}
 
-.container-detail-formation .description-objectif .title {
-     margin: 0.5em 0;
-     font-size: 1.4em;
-     text-decoration: underline;
-}
 
-.container-detail-formation section {
-     width: 31%;
-     border-radius: 5px 5px 0 0;
-     background: #f6f6f6;
-     padding: 0.9em;
-}
-.container-detail-formation section .card-content {
-     margin-top: 0.6em;
-}
+
