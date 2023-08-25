@@ -57,7 +57,7 @@ export default function Formation() {
                                    },
                                    })}
                          >
-                              Regarder la vidéo
+                              Regarder le cours
                          </Button>
                     </div>
                </Card>
@@ -85,7 +85,7 @@ export default function Formation() {
                                    },
                               })}
                          >
-                              Regarder la vidéo
+                              Regarder le cours
                          </Button>
                     </div>
                </Card>
@@ -113,7 +113,7 @@ export default function Formation() {
                               },
                               })}
                          >
-                              Regarder la vidéo
+                              Regarder le cours
                          </Button>
                     </div>
                </Card>
@@ -141,7 +141,7 @@ export default function Formation() {
                                    },
                               })}
                          >
-                              Regader la vidéo
+                              Regader le cours
                          </Button>
                     </div>
                </Card>
@@ -169,7 +169,7 @@ export default function Formation() {
                                    },
                               })}
                          >
-                              Regarder la vidéo
+                              Regarder le cours
                          </Button>
                     </div>
                </Card>
@@ -197,7 +197,7 @@ export default function Formation() {
                                    },
                               })}
                          >
-                              Regarder la vidéo
+                              Regarder le cours
                          </Button>
                     </div>
                </Card>

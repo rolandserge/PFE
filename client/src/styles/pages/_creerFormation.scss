@@ -29,3 +29,74 @@
      }
 
 }
+
+
+// creation cours style code
+.create-cours-page {
+
+     .title {
+          // border: 1px solid;
+          margin: 1em 0 0 1em;
+          // color: $orange;
+          font-weight: 600;
+          font-size: 1.5em;
+     }
+
+     .ajouter-cours {
+          // border: 1px solid;
+          display: flex;
+          margin: 1em;
+          justify-content: space-around;
+
+          .container-chapitre {
+               // border: 1px solid;
+               width: 35%;
+               padding: 0 1em;
+               // height: 10vh;
+               // background: white;
+
+               .titre-chapitre {
+                    // border: 1px solid;
+                    margin: 0 0 1em 0;
+                    font-size: 1.1em;
+               }
+
+               .cards-chapitre {
+
+                    .chapitre {
+                         display: flex;
+                         margin: 0.2em 0;
+                         padding: 0.8em 1em;
+                         cursor: pointer;
+                         background: $blanc;
+
+                         border-radius: 3px;
+                         justify-content: space-between;
+
+                         .numero {
+                              width: 6%;
+                              font-weight: bold;
+                              font-size: 1em;
+                              // border: 1px solid blue;
+                         }
+                         .titre {
+                              width: 94%;
+                              // border: 1px solid red;
+                         }
+                    }
+               }
+          }
+          form {
+               background: $blanc;
+               padding: 1.5em;
+               // margin: 2% 15% 0.8% 15%;
+               width: 62%;
+               border-radius: 4px;
+
+               .action-button {
+                    display: flex;
+                    justify-content: space-between;
+               }
+           }
+     }
+}

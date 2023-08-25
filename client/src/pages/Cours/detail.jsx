@@ -57,7 +57,7 @@ export default function DetailFormation() {
                                              </p>
                                         </div>
                                    </div>
-                                   <div className="container-objectif">
+                                   {/* <div className="container-objectif">
                                         <div className="title">
                                              <p>Objectifs</p>
                                         </div>
@@ -79,7 +79,7 @@ export default function DetailFormation() {
                                                   <List.Item>Run tests to make sure your changes do not break the build</List.Item>
                                              </List>
                                         </div>
-                                   </div>
+                                   </div> */}
                               </div>
                          </div>
                     </div>

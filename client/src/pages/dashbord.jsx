@@ -51,7 +51,7 @@ export default function Dashboad() {
                          <div className="statistiques">
                               <div className={classes.root}>
                                    <SimpleGrid
-                                        cols={2}
+                                        cols={3}
                                         breakpoints={[
                                         { maxWidth: 'md', cols: 2 },
                                         { maxWidth: 'xs', cols: 1 },
@@ -60,11 +60,24 @@ export default function Dashboad() {
                                         <Paper withBorder p="md" radius="md">
                                              <Group position="apart">
                                                   <Text size="xs" color="dimmed" className={classes.title}>
-                                                       Personnels
+                                                       Cours
                                                   </Text>
-                                                  <FaUsers className={classes.icon} size="1.4rem" stroke={1.5} />
+                                                  <BiArchive className={classes.icon} size="1.4rem" stroke={1.5} />
                                              </Group>
-
+                                             <Group align="flex-end" spacing="xs" mt={25}>
+                                                  <Text className={classes.value}>20</Text>
+                                             </Group>
+                                             <Text fz="xs" c="dimmed" mt={7}>
+                                                  Compared to previous month
+                                             </Text>
+                                        </Paper>
+                                        <Paper withBorder p="md" radius="md">
+                                             <Group position="apart">
+                                                  <Text size="xs" color="dimmed" className={classes.title}>
+                                                       Formateurs
+                                                  </Text>
+                                                  <BiArchive className={classes.icon} size="1.4rem" stroke={1.5} />
+                                             </Group>
                                              <Group align="flex-end" spacing="xs" mt={25}>
                                                   <Text className={classes.value}>5</Text>
                                              </Group>
@@ -75,12 +88,12 @@ export default function Dashboad() {
                                         <Paper withBorder p="md" radius="md">
                                              <Group position="apart">
                                                   <Text size="xs" color="dimmed" className={classes.title}>
-                                                       Cours
+                                                       Apprenants
                                                   </Text>
                                                   <BiArchive className={classes.icon} size="1.4rem" stroke={1.5} />
                                              </Group>
                                              <Group align="flex-end" spacing="xs" mt={25}>
-                                                  <Text className={classes.value}>20</Text>
+                                                  <Text className={classes.value}>15</Text>
                                              </Group>
                                              <Text fz="xs" c="dimmed" mt={7}>
                                                   Compared to previous month

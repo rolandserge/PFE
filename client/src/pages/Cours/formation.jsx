@@ -56,19 +56,19 @@ const mainLinks = [
      },
      {
           link: "#",
-          label: "Developpement web"
+          label: "Node.js Complet"
      },
      {
           link: "#",
-          label: "Stratégie web"
+          label: "Next.js Complet"
      },
      {
           link: "#",
-          label: "Le reste"
+          label: "Laravel 10 Complet"
      },
      {
           link: "#",
-          label: "Categories"
+          label: "React.js Complet"
      },
 ]
 
