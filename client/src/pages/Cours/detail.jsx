@@ -1,4 +1,3 @@
-import Headers from "../../components/header";
 import { Avatar, Text, Group } from '@mantine/core';
 import User from "/assets/utilisateur.png"
 import { PiVideoLight } from "react-icons/pi"
@@ -12,7 +11,6 @@ export default function DetailFormation() {
 
      return (
           <div>
-               <Headers title="Detail de formation" />
                <div className="container-detail-formation">
                     <div className="detail-formation-gauche">
                          {/* <div className="user-post">

@@ -1,4 +1,3 @@
-import Headers from "../../components/header";
 import { useNavigate } from "react-router-dom"
 import { BiChevronRight } from "react-icons/bi"
 import { BsCalendar3 } from "react-icons/bs"
@@ -57,7 +56,6 @@ export default function CreerFormation() {
 
      return (
           <div>
-               <Headers title="Création de cours" />
                <div className="container-creer-formation">
                     <div className="banner-container">
                          <div className="titre">

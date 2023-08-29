@@ -4,7 +4,6 @@ import image1 from "/assets/connexion.jpg"
 import { createStyles, SimpleGrid, Card, rem, Button, Text } from '@mantine/core';
 import { useNavigate } from "react-router-dom"
 import { BiChevronRight } from "react-icons/bi"
-import Headers from "../../components/header";
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -32,7 +31,6 @@ export default function Module() {
 
     return (
         <div className="playlist-page">
-            <Headers title="Module" />
             <div className="playlist-head">
                 <div className="titre-playlist">
                     <h2>Liste des modules</h2>

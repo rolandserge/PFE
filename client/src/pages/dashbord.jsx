@@ -1,8 +1,9 @@
-import { createStyles, Group, Paper, SimpleGrid, Text, rem } from '@mantine/core';
+import { createStyles,RingProgress,Center, Group, Paper, SimpleGrid, Text, rem } from '@mantine/core';
 import { FaUsers } from "react-icons/fa"
 import { BiArchive } from "react-icons/bi"
+import Cover from "/assets/connexion.jpg"
 import Formation from "../components/formation";
-import Headers from "../components/header"
+import { Link } from 'react-router-dom';
 // import Calendrier from '../components/calendrier';
 
 
@@ -45,10 +46,9 @@ export default function Dashboad() {
 
      return (
           <div className='dashbord'>
-               <Headers title="Tableau de bord" />
                <div className="container-dashbord">
                     <section>
-                         <div className="statistiques">
+                         {/* <div className="statistiques">
                               <div className={classes.root}>
                                    <SimpleGrid
                                         cols={3}
@@ -68,7 +68,7 @@ export default function Dashboad() {
                                                   <Text className={classes.value}>20</Text>
                                              </Group>
                                              <Text fz="xs" c="dimmed" mt={7}>
-                                                  Compared to previous month
+                                                  Compared to previous
                                              </Text>
                                         </Paper>
                                         <Paper withBorder p="md" radius="md">
@@ -100,6 +100,49 @@ export default function Dashboad() {
                                              </Text>
                                         </Paper>
                                    </SimpleGrid>
+                              </div>
+                         </div> */}
+                         <div className="apprenant-dashbord">
+                              <div className='image-cover'>
+                                   <img src={Cover} alt="" />
+                              </div>
+                              <div className='cours-element'>
+                                   <div className='cours'>
+                                        <p>Formation Node.js</p>
+                                   </div>
+                                   <div className='info-cours'>
+                                        <h2>Lecon 1 : Creation du projet</h2>
+                                        <div>
+                                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                             perferendis ad, earum cupiditate ipsa quam ut! Eos, magnam
+                                             Lorem ipsum dolor sit amet consectetur adipisicing eli
+                                        </div>
+                                   </div>
+                                   <div className='navigation'>
+                                        <div>
+                                             <Link to="#" className='retour-cours'>Retour au cours</Link>
+                                        </div>
+                                        <div className='progession'>
+                                             <div>
+                                                  Progression du cours 
+                                             </div>
+                                             <span>
+                                             <Group>
+                                                  <RingProgress
+                                                  size={65}
+                                                  roundCaps
+                                                  thickness={4}
+                                                  sections={[{ value: 50, color: "orange" }]}
+                                                  label={
+                                                  <Center>
+                                                       50%
+                                                  </Center>
+                                                  }
+                                                  />
+                                             </Group>
+                                             </span>
+                                        </div>
+                                   </div>
                               </div>
                          </div>
                          <div className="formation-container">

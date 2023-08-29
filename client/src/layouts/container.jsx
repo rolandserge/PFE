@@ -5,6 +5,7 @@ import { BsCalendar3 } from "react-icons/bs"
 import { BiArchive } from "react-icons/bi"
 import { CiRepeat, CiRainbow, CiLogout } from "react-icons/ci"
 import { Link, useNavigate } from "react-router-dom";
+import Headers from "../components/header";
 
 
 const useStyles = createStyles((theme) => ({
@@ -131,6 +132,7 @@ export default function Layout({ children }) {
                     </Navbar>
                </aside>
                <main>
+                    <Headers title={"Apprenant"} />
                     {
                          children
                     }

@@ -26,3 +26,64 @@ button.Kalend__button.Kalend__Event-header.Kalend__ButtonBase {
 .dashbord .container-dashbord {
      display: flex;
 }
+.apprenant-dashbord {
+     // border: 1px solid;
+     display: flex;
+     justify-content: space-between;
+     padding: 1em;
+     background: $blanc;
+     height: 37vh;
+     margin: 1em;
+
+     .image-cover {
+          width: 36%;
+
+          img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+          }
+     }
+     .cours-element {
+          width: 60%;
+
+          .cours {
+               // color: $gris;
+               // font-size: 0.8em;
+          }
+          .info-cours {
+               // border: 1px solid;
+               width: 85%;
+               margin: 0.3em 0 0.8em 0;
+          }
+          .navigation {
+               display: flex;
+               // border: 1px solid;
+               // margin-bottom: 1em;
+               align-items: center;
+               width: 75%;
+               justify-content: space-between;
+
+               .retour-cours {
+                    text-decoration: none;
+                    padding: 0.5em 1em;
+                    border-radius: 3px;
+                    color: $blanc;
+                    background: $noir;
+               }
+               .progession {
+                    // border: 1px solid;
+                    width: 52%;
+                    // padding: 0.5em;
+                    // margin-left: 0.6em;
+                    // background: $orange;
+                    // color: $blanc;
+                    // border-radius: 50%;
+                    // border: 1px solid;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+               }
+          }
+     }
+}

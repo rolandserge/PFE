@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Headers from '../../components/header'
 import Formation from "../../components/formation";
 import { createStyles, Anchor, Group, rem } from '@mantine/core';
 
@@ -94,7 +93,6 @@ export default function FormationPage() {
 
      return (
           <div>
-               <Headers title="Mes cours" />
                <div className="categorie-containers">
                     <div className={classes.header}>
                          <div className={classes.links}>

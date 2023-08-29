@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Headers from "../../components/header";
+import React, { useRef, useState } from "react";
 import { useSnackbar } from 'notistack';
 import { Dropzone } from '@mantine/dropzone';
 import { IconChevronDown } from '@tabler/icons-react';
@@ -8,23 +7,62 @@ import { Textarea, TextInput, Group, Text, rem, Input, Accordion, Button } from 
 
 export default function CreateCours() {
 
-    const [value, setValue] = useState('');
+    const [data, setData] = useState({
+        chapitre: '',
+        descripchapitre: '',
+        cours: '',
+        module: '',
+        descripcours: ''
+      });
+
+    const [image, setImage] = useState('');
     const [video, setVideo] = useState('');
     const [currentTab, setCurrentTab] = useState(0);
     const { enqueueSnackbar } = useSnackbar()
 
     const handleNext = () => {
-        setCurrentTab((prevTab) => prevTab + 1);
-      };
+        if (validateStep()) {
+            setCurrentTab((prevTab) => prevTab + 1);
+
+          } else {
+            alert('Please fill in all required fields before proceeding.');
+          }
+    };
     
-      const handlePrevious = () => {
+    const handlePrevious = () => {
         setCurrentTab((prevTab) => prevTab - 1);
-      };
+    };
     
-      const handleSubmit = () => {
+    const handleSubmit = (e) => {
         // Ici, vous pouvez implémenter la logique pour soumettre les données
+        e.preventDefault()
+        // console.log(data.module)
+        const formData = new FormData()
+        formData.append('chapitre', data.chapitre)
+        formData.append('descriptionc', data.descripchapitre)
+        formData.append("cours", data.cours)
+        formData.append('image', image[0])
+        formData.append('video', video[0])
+        formData.append("module", data.module)
+        formData.append('descriptioncs', data.descripcours)
         alert('Formulaire soumis avec succès !');
-      };
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setData({ ...data, [name]: value });
+    };
+
+    const validateStep = () => {
+        switch (currentTab) {
+          case 0:
+            return data.chapitre && data.descripchapitre && image != "";
+          case 1:
+            return data.cours && data.descripcours && video != "" && data.module;
+          default:
+            return true;
+        }
+    };
 
     const renderTabContent = () => {
 
@@ -33,20 +71,24 @@ export default function CreateCours() {
               return (
                 <div>
                     <div>
-                            <TextInput
-                                mb="1em"
-                                label="Le titre du chapitre"
-                                placeholder="Entrer le titre du chapitre"
-                                required
-                            />
+                        <TextInput
+                            mb="1em"
+                            value={data.chapitre}
+                            name="chapitre"
+                            onChange={handleChange} 
+                            label="Le titre du chapitre"
+                            placeholder="Entrer le titre du chapitre"
+                            required
+                        />
                     </div>
                     <div>
                         <Textarea 
-                            value={value} 
-                            onChange={(event) => setValue(event.currentTarget.value)} 
+                            value={data.descripchapitre} 
+                            onChange={handleChange} 
                             label="La description du chapitre"
                             placeholder="Entrer la description du chapitre"
                             autosize
+                            name="descripchapitre"
                             m="1em 0"
                             required
                             minRows={2}
@@ -56,61 +98,65 @@ export default function CreateCours() {
                     <div>
                         <Dropzone
                             onDrop={(files) => {
-                                setVideo(files)
+                                setImage(files)
                                 enqueueSnackbar('Image choisie avec success', {variant: "success"})
-                            }
-                        } 
-                                    onReject={(files) => enqueueSnackbar('L\'image choisie sont invalides', {variant: "error"})}
-                                    m="1em 0"
-                                    accept={['video/mp4']}
-                                >
-                                    <Group position="center" spacing="xl" style={{ minHeight: rem(100), pointerEvents: 'none' }}>
-                                    <div>
-                                            <Text size="xl" inline>
-                                                Choisissez l'image de coverture du cours
-                                            </Text>
-                                            <Text size="sm" color="dimmed" inline mt={7}>
-                                                Joignez un fichier que vous souhaitez
-                                            </Text>
-                                    </div>
-                                    </Group>
-                            </Dropzone>
-                        </div>
+                            }} 
+                            m="1em 0"
+                            onReject={(files) => enqueueSnackbar('L\'image choisie sont invalides', {variant: "error"})}
+                            accept={['image/png', 'image/jpeg']}
+                        >
+                            <Group position="center" spacing="xl" style={{ minHeight: rem(100), pointerEvents: 'none' }}>
+                                <div>
+                                    <Text size="xl" inline>
+                                        Choisissez l'image de coverture du cours
+                                    </Text>
+                                    <Text size="sm" color="dimmed" inline mt={7}>
+                                        Joignez un fichier que vous souhaitez
+                                    </Text>
+                                </div>
+                            </Group>
+                        </Dropzone>
+                    </div>
                 </div>
               );
             case 1:
               return (
                 <div>
-                        <div>
-                            <TextInput
-                                mb="1em"
-                                label="Le titre du cours"
-                                placeholder="Entrer le titre du cours"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="">Le module du cours</label>
-                            <Input component="select" required rightSection={<IconChevronDown size={14} stroke={1.5} />}>
-                                <option value="1">Autentification Next.js/Laravel</option>
-                                <option value="2">Laravel A a Z</option>
-                                <option value="">E-commerce en Laravel</option>
-                                <option value="">Base de Next.JS</option>
-                            </Input>
-                        </div>
-                        <div>
-                            <Textarea 
-                                value={value} 
-                                onChange={(event) => setValue(event.currentTarget.value)} 
-                                label="La description du cours"
-                                placeholder="Entrer la description du cours"
-                                autosize
-                                m="1em 0"
-                                required
-                                minRows={2}
-                                maxRows={4}
-                            />
-                        </div>
+                    <div>
+                        <TextInput
+                            mb="1em"
+                            value={data.cours} 
+                            onChange={handleChange} 
+                            label="Le titre du cours"
+                            name="cours"
+                            placeholder="Entrer le titre du cours"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="">Le module du cours</label>
+                        <Input component="select" value={data.module} name="module" onChange={handleChange} required rightSection={<IconChevronDown size={14} stroke={1.5} />}>
+                            <option value="">Choisir le module du cours</option>
+                            <option value="1">Autentification Next.js/Laravel</option>
+                            <option value="2">Laravel A a Z</option>
+                            <option value="D">E-commerce en Laravel</option>
+                            <option value="DS">Base de Next.JS</option>
+                        </Input>
+                    </div>
+                    <div>
+                        <Textarea 
+                            value={data.descripcours} 
+                            onChange={handleChange} 
+                            label="La description du cours"
+                            placeholder="Entrer la description du cours"
+                            autosize
+                            name="descripcours"
+                            m="1em 0"
+                            required
+                            minRows={2}
+                            maxRows={4}
+                        />
+                    </div>
                         <div>
                             <Dropzone
                                 onDrop={(files) => {
@@ -118,20 +164,20 @@ export default function CreateCours() {
                                         enqueueSnackbar('Vidéo choisie avec success', {variant: "success"})
                                         }
                                     } 
-                                    onReject={(files) => enqueueSnackbar('La video choisie sont invalides', {variant: "error"})}
-                                    m="1em 0"
-                                    accept={['video/mp4']}
-                                >
-                                    <Group position="center" spacing="xl" style={{ minHeight: rem(100), pointerEvents: 'none' }}>
+                                m="1em 0"
+                                onReject={(files) => enqueueSnackbar('La video choisie sont invalides', {variant: "error"})}
+                                accept={['video/mp4']}
+                            >
+                                <Group position="center" spacing="xl" style={{ minHeight: rem(100), pointerEvents: 'none' }}>
                                     <div>
-                                            <Text size="xl" inline>
-                                                Choisissez la video du cours
-                                            </Text>
-                                            <Text size="sm" color="dimmed" inline mt={7}>
-                                                Joignez un fichier en format video que vous souhaitez
-                                            </Text>
+                                        <Text size="xl" inline>
+                                            Choisissez la video du cours
+                                        </Text>
+                                        <Text size="sm" color="dimmed" inline mt={7}>
+                                            Joignez un fichier en format video que vous souhaitez
+                                        </Text>
                                     </div>
-                                    </Group>
+                                </Group>
                             </Dropzone>
                         </div>
                 </div>
@@ -144,7 +190,6 @@ export default function CreateCours() {
 
     return (
         <div className="create-cours-page">
-            <Headers title="Cours" />
             <div className="container-formulaire">
                 <div className="title">
                     <p>Créer un cours</p>
@@ -193,7 +238,7 @@ export default function CreateCours() {
                                 </div>
                             </div>
                     </div>
-                    <form action="post">
+                    <form onSubmit={handleSubmit}>
                         {
                             renderTabContent()
                         }
@@ -207,15 +252,15 @@ export default function CreateCours() {
                                             onClick={handlePrevious}
                                             color="gray"
                                         >
-                                            Précédant
+                                            Précédent
                                         </Button>
                                         <Button 
                                             type="submit"
-                                            onClick={handleSubmit}
+                                            // onClick={handleSubmit}
                                             color="orange"
                                             h="6.5vh"
                                         >
-                                        Ajouter le cours
+                                            Ajouter le cours
                                         </Button>
                                     </>
                                 )
