@@ -38,11 +38,10 @@ export default function Formation() {
                          <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
                     </div>
                     <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
+                         <p>Prise en main de node js</p>
                     </div>
                     <Text className={classes.title}>
-                         Comment securisé un site web de A a Z Lorem,
-                         Vel atque veritatis in qui totam
+                         Node JS est une technologie assez facile à prendre en main, notamment grâce aux...
                     </Text>
                     <div>
                          <Button
@@ -66,11 +65,11 @@ export default function Formation() {
                          <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
                     </div>
                     <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
+                         <p>Prise en main de Next.js 13</p>
                     </div>
                     <Text className={classes.title}>
-                         Comment securisé un site web de A a Z Lorem,
-                         Vel atque veritatis in qui totam
+                         Next.js étant qualifié de framework React 
+                         pour la production, il est devenu évident...
                     </Text>
                     <div>
                          <Button
@@ -94,11 +93,11 @@ export default function Formation() {
                          <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
                     </div>
                     <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
+                         <p>Prise en main de Laravel 9</p>
                     </div>
                     <Text className={classes.title}>
-                         Comment securisé un site web de A a Z Lorem,
-                         Vel atque veritatis in qui totam
+                         Laravel est un puissant Cadre(Framework) PHP MVC, 
+                         conçu pour les développeurs...
                     </Text>
                     <div>
                          <Button
@@ -117,7 +116,7 @@ export default function Formation() {
                          </Button>
                     </div>
                </Card>
-               <Card className={classes.card} >
+               {/* <Card className={classes.card} >
                     <div className="coverCardFormation">
                          <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />
                     </div>
@@ -200,7 +199,7 @@ export default function Formation() {
                               Regarder le cours
                          </Button>
                     </div>
-               </Card>
+               </Card> */}
           </SimpleGrid>
      )
 }

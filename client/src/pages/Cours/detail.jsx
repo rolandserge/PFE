@@ -29,7 +29,7 @@ export default function DetailFormation() {
                          </div> */}
                          <div className="video-container">
                               <div className="title-formation">
-                                   <p>Authentification Next.js/Laravel</p>
+                                   <p>Prise en main de node.js</p>
                               </div>
                               <div className="video-card">
                                    <video width="100%" style={{ borderRadius: "4px"}} height="100%" controls muted>
@@ -37,7 +37,7 @@ export default function DetailFormation() {
                                    </video>
                               </div>
                               <div className="publier-div">
-                                   <p><BsCalendar3 /> Publié le 19 juin 2023 à 15h11</p>
+                                   <p><BsCalendar3 /> Publié le 29 aout 2023 à 15h11</p>
                               </div>
                               <div className="description-objectif">
                                    <div className="container-description">
@@ -106,13 +106,13 @@ export default function DetailFormation() {
                                         transitionDuration={100}
                                    >
                                         <Accordion.Item value="customization">
-                                             <Accordion.Control fw="bold" color="red">Customization</Accordion.Control>
+                                             <Accordion.Control fw="bold" color="red">Introduction</Accordion.Control>
                                              <Accordion.Panel>
                                                   <div className="accordeon">
                                                        <div className="video-image">
                                                             <PiVideoLight fontSize="1.5em"/>
                                                        </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                       <p>Presentation</p>
                                                   </div>
                                              </Accordion.Panel>
                                              <Accordion.Panel>
@@ -120,7 +120,7 @@ export default function DetailFormation() {
                                                        <div className="video-image">
                                                             <PiVideoLight fontSize="1.5em"/>
                                                        </div>
-                                                       <p>Configure components appearance</p>         
+                                                       <p>Les prérequis </p>         
                                                   </div>
                                              </Accordion.Panel>
                                              <Accordion.Panel>
@@ -128,60 +128,12 @@ export default function DetailFormation() {
                                                        <div className="video-image">
                                                             <PiVideoLight fontSize="1.5em"/>
                                                        </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
+                                                       <p>Apercu de la formation</p>         
                                                   </div>
                                              </Accordion.Panel>
                                         </Accordion.Item>
                                         <Accordion.Item value="flexibility">
-                                             <Accordion.Control>Flexibility</Accordion.Control>
+                                             <Accordion.Control>Installation de node.js</Accordion.Control>
                                              <Accordion.Panel>
                                                   <div className="accordeon">
                                                        <div className="video-image">
@@ -208,7 +160,7 @@ export default function DetailFormation() {
                                              </Accordion.Panel>
                                         </Accordion.Item>
                                         <Accordion.Item value="Titre de la formation">
-                                             <Accordion.Control>Titre de la formation</Accordion.Control>
+                                             <Accordion.Control>Les bases de node.js</Accordion.Control>
                                              <Accordion.Panel>
                                                   <div className="accordeon">
                                                        <div className="video-image">

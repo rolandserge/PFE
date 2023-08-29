@@ -34,13 +34,13 @@ export default function Login() {
                                    <TextInput label="Email" placeholder="webturba@gmail.com" required />
                                    <PasswordInput label="Mot de passe" placeholder="Votre mot de passe" required mt="md" />
                                    <Group position="apart" mt="lg">
-                                        <Checkbox label="Remember me" />
-                                        <Anchor component="button" size="sm">
+                                        {/* <Checkbox label="Remember me" /> */}
+                                        {/* <Anchor component="button" size="sm">
                                         Mot de passe oublié ?
-                                        </Anchor>
+                                        </Anchor> */}
                                    </Group>
                                    <Button fullWidth mt="xl" color='yellow' onClick={() => navigation('/acceuil')}>
-                                        Sign in
+                                        Se connecter
                                    </Button>
                               </Paper>
                          </Container>

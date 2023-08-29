@@ -6,16 +6,25 @@ import { BiArchive } from "react-icons/bi"
 import { CiRepeat, CiRainbow, CiLogout } from "react-icons/ci"
 import { Link, useNavigate } from "react-router-dom";
 import Headers from "../components/header";
+import Logo from "/assets/logo.jpeg";
 
 
 const useStyles = createStyles((theme) => ({
      
      header: {
        paddingBottom: theme.spacing.md,
+     //   border: "1px solid red",
+       display: "flex",
+       alignItems: "center",
+       justifyContent: "center",
        marginBottom: `calc(${theme.spacing.md} * 1.5)`,
      //   borderBottom: `${rem(1)} solid ${
      //     theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
      //   }`,
+     },
+     img : {
+          height: '85%',
+          width: '85%',
      },
 
      aside: {
@@ -111,7 +120,7 @@ export default function Layout({ children }) {
                     <Navbar height="100vh" width={{ sm: 230 }} p="md" className={classes.aside}>
                          <Navbar.Section grow>
                               <Group className={classes.header} position="apart">
-                                   <span>E.Learning</span>
+                                   <span><img src={Logo} alt="Le logo de l'entreprise" className={classes.img} /></span>
                               </Group>
                               <div>
                                    {
