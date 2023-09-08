@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const userSchema = new mongoose.Schema({
+import mongoose from 'mongoose'
+import bcrypt from "bcryptjs";
+
+const userSchema = mongoose.Schema({
     nom : {
         type: String,
         required: true
@@ -12,13 +14,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    fonction : {
+    role : {
         type: String,
         required: true
     },
-    mpd : {
+    password : {
         type: String,
         required: true
+    },
+    departement : {
+        type: mongoose.Types.ObjectId,
+        ref: 'Departement'
     },
     created: {
         type: Date,
@@ -26,4 +32,21 @@ const userSchema = new mongoose.Schema({
         default: Date.now()
     }
 })
-module.exports = mongoose.model("User", userSchema)
+
+userSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password)
+}
+  
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+      next()
+}
+  
+const salt = await bcrypt.genSalt(10)
+this.password = await bcrypt.hash(this.password, salt)
+
+})
+
+const User = mongoose.model("User", userSchema)
+
+export default User

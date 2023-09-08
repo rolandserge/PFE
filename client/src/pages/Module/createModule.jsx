@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useSnackbar } from 'notistack';
 import { Dropzone } from '@mantine/dropzone';
@@ -11,39 +10,37 @@ import { TextInput, Group, Text, rem, Input, Button} from '@mantine/core';
 export default function CreateModule() {
 
     const [image, setImage] = useState('')
-    const [data, setData] = useState({
-        titre: "",
-        departement: "",
-    })
+    const [data, setData] = useState("")
+    const [departement, setDepartement] = useState('')
     const { enqueueSnackbar } = useSnackbar()
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
-        setData({ ...data, [name]: value });
+        setData(event.target.value);
     };
 
-    const AddModule = async (e) => {
+    const AddModule = async(e) => {
 
         e.preventDefault();
 
         if(image != '') {
 
             const formData = new FormData()
-            formData.append('nom', data.titre)
-            formData.append('departement', data.departement)
+            formData.append('nom', data)
+            formData.append('departement', departement)
             formData.append('image', image[0])
             
             try {
 
-                await axios.post('http://localhost:5000/add-module', formData, { headers: {
-                    'Content-Type': 'multipart/form-data',
-                  }})
-                  
-                  alert('success')
+                const reponse = await axios.post('/api/add-module', formData, { headers: {
+                    'Content-Type': 'multipart/form-data'
+                }})
+                console.log(reponse)
+
+                alert('success')
 
             } catch (error) {
 
-                console.log("eerririr")
+                console.log(error)
             }
 
         } else {
@@ -65,7 +62,7 @@ export default function CreateModule() {
                         <TextInput
                             label="Le titre du module"
                             mb="1em"
-                            value={data.titre}
+                            value={data}
                             name="titre"
                             onChange={handleChange}
                             placeholder="Entrer le titre du module"
@@ -73,9 +70,9 @@ export default function CreateModule() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="">Le département du module</label>
-                        <Input component="select" name="departement" value={data.departement} onChange={handleChange} required rightSection={<IconChevronDown size={14} stroke={1.5} />}>
-                            <option value="1">Departement Informatique</option>
+                        <Input component="select" name="departement" value={departement} onChange={e => setDepartement(e.target.value)} required rightSection={<IconChevronDown size={14} stroke={1.5} />}>
+                            <option value="">Veillez choisir le département du module</option>
+                            <option value="10">Departement Informatique</option>
                         </Input>
                     </div>
                     <div>

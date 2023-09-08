@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => ({
    }));
 
 
-export default function Headers({title}) {
+export default function Headers({data}) {
 
      const { classes } = useStyles();
 
@@ -51,7 +51,7 @@ export default function Headers({title}) {
                          <div className={classes.inner}>
                               <Group>
                                    <div>
-                                        <h2>{title}</h2>
+                                        <h2>{data.role}</h2>
                                    </div>
                               </Group>
                               <Group className={classes.groupRight}>
@@ -61,11 +61,11 @@ export default function Headers({title}) {
                                    <Group>
                                         <div style={{ flex: 1 }}>
                                              <Text size="sm" weight={500}>
-                                             Serge Roland
+                                             { data.nom }
                                              </Text>
 
                                              <Text color="dimmed" size="xs">
-                                                  roland@gmail.com
+                                                  { data.email}
                                              </Text>
                                         </div>
                                         <Avatar src={User} size={50} radius="xl" />

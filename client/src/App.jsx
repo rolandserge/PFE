@@ -12,6 +12,9 @@ import CreateCours from './pages/Cours/createCours';
 import Module from './pages/Module/module';
 import CreateModule from './pages/Module/createModule';
 import CoursModule from './pages/Module/coursModule';
+import Register from './pages/Utilisateur/register';
+import Utilisateurs from './pages/Utilisateur';
+import CreateDepartement from './pages/Departement/createDepartement';
 
 
   const router = createBrowserRouter([
@@ -63,6 +66,18 @@ import CoursModule from './pages/Module/coursModule';
           path: "/module/cours",
           element: <CoursModule />
         },
+        {
+          path: "/utilisateur",
+          element: <Utilisateurs />
+        },
+        {
+          path: "/creer-utilisateur",
+          element: <Register />
+        },
+        {
+          path: "/creer-departement",
+          element: <CreateDepartement />
+        }
       ],
     }
   ]);

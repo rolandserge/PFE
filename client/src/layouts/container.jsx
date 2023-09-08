@@ -2,11 +2,15 @@ import { useState } from "react"
 import { createStyles, Navbar, Group, getStylesRef } from '@mantine/core';
 import { RxDashboard } from "react-icons/rx"
 import { BsCalendar3 } from "react-icons/bs"
+import { FaUsers } from "react-icons/fa";
 import { BiArchive } from "react-icons/bi"
 import { CiRepeat, CiRainbow, CiLogout } from "react-icons/ci"
 import { Link, useNavigate } from "react-router-dom";
 import Headers from "../components/header";
 import Logo from "/assets/logo.jpeg";
+import { useDispatch, useSelector } from "react-redux";
+import { useLogoutMutation } from "../slices/userApiSlice";
+import { logout } from "../slices/authSlice";
 
 
 const useStyles = createStyles((theme) => ({
@@ -61,6 +65,28 @@ const useStyles = createStyles((theme) => ({
          },
        },
      },
+     linkb: {
+          ...theme.fn.focusStyles(),
+          display: 'flex',
+          alignItems: 'center',
+          background: "orange",
+          color: "white",
+          textDecoration: 'none',
+          fontSize: theme.fontSizes.sm,
+          // color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
+          padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
+          borderRadius: theme.radius.sm,
+          fontWeight: 500,
+      
+          '&:hover': {
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+      
+            [`& .${getStylesRef('icon')}`]: {
+              color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+            },
+          },
+     },
    
      linkIcon: {
        ref: getStylesRef('icon'),
@@ -82,13 +108,13 @@ const useStyles = createStyles((theme) => ({
    }));
 
 const data = [
-     { link: '/acceuil', label: 'Tableau de bord', icon: RxDashboard },
-     { link: '/formation', label: 'Mes cours', icon: BiArchive },
+     { link: '/acceuil', label: 'Tableau de bord', type: "app", icon: RxDashboard },
+     { link: '/formation', label: 'Mes cours', type: "app", icon: BiArchive },
      { link: '/creer-formation', label: 'Créer un cours', icon: BiArchive },
-     { link: '#', label: 'Departement', icon: BiArchive },  
+     { link: '/creer-departement', label: 'Departement', icon: BiArchive },  
      { link: '/module', label: 'Module', icon: BiArchive },
-     { link: '#', label: 'Reunions', icon: CiRainbow },
-     // { link: '/calendrier', label: 'Calendrier', icon: BsCalendar3 },
+     { link: '/utilisateur', label: 'Utilisateur', icon: FaUsers },
+     { link: '#', label: 'Reunions', type: "app", icon: CiRainbow },
 ];
 
 
@@ -97,11 +123,15 @@ export default function Layout({ children }) {
           const { classes, cx } = useStyles();
           const [active, setActive] = useState('Billing');
           const navigate = useNavigate()
+          const dispatch = useDispatch()
+          const { userInfo } = useSelector(state => state.auth)
+          const [logoutApiCall] = useLogoutMutation()
 
-          const links = data.map((item) => (
+          // Filtrer les éléments en fonction du role
+          const filteredItems = userInfo.role != 'Apprenant' ? data : data.filter((item) => item.type === "app");
+          const links = filteredItems.map((item) => (
                     <Link
                          className={cx(classes.link, { [classes.linkActive]: item.label === active })}
-                         // to={item.link}
                          key={item.label}
                          onClick={(event) => {
                          event.preventDefault();
@@ -113,6 +143,17 @@ export default function Layout({ children }) {
                          <span>{item.label}</span>
                     </Link>
           ));
+
+          const logoutUser = async() => {
+               try {
+                    await logoutApiCall().unwrap()
+                    dispatch(logout())
+                    navigate("/")
+               } catch (error) {
+                    console.log(error)
+               }
+          }
+
 
      return (
           <div className="container_home">
@@ -133,7 +174,7 @@ export default function Layout({ children }) {
                                    <CiRepeat className={classes.linkIcon} stroke={1.5} />
                                    <span>Modifier mon profil</span>
                               </Link>
-                              <Link to="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+                              <Link to="#" className={classes.linkb} onClick={logoutUser}>
                                    <CiLogout className={classes.linkIcon} stroke={1.5} />
                                    <span>Deconnexion</span>
                               </Link>
@@ -141,7 +182,7 @@ export default function Layout({ children }) {
                     </Navbar>
                </aside>
                <main>
-                    <Headers title={"Apprenant"} />
+                    <Headers data={userInfo} />
                     {
                          children
                     }

@@ -1,4 +1,4 @@
-import { createStyles, SimpleGrid, Card, rem, Button, Text } from '@mantine/core';
+import { createStyles, RingProgress, SimpleGrid, Group, Center, Card, rem, Button, Text } from '@mantine/core';
 import login from "/assets/login.jpg"
 import image1 from "/assets/connexion.jpg"
 import { useNavigate } from "react-router-dom"
@@ -21,6 +21,11 @@ const useStyles = createStyles((theme) => ({
        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
        margin: "0.1em 0 1em 0"
      },
+     action : {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between"
+     }
    
 }));
 
@@ -43,10 +48,10 @@ export default function Formation() {
                     <Text className={classes.title}>
                          Node JS est une technologie assez facile à prendre en main, notamment grâce aux...
                     </Text>
-                    <div>
+                    <div className={classes.action}>
                          <Button
                               onClick={() => navigate('/formation/detail')}
-                              fullWidth
+                              w="70%"
                               styles={(theme) => ({
                                    root: {
                                    backgroundColor: "gray",
@@ -58,6 +63,19 @@ export default function Formation() {
                          >
                               Regarder le cours
                          </Button>
+                         <Group>
+                              <RingProgress
+                              size={65}
+                              roundCaps
+                              thickness={4}
+                              sections={[{ value: 50, color: "orange" }]}
+                              label={
+                                   <Center>
+                                        50%
+                                   </Center>
+                              }
+                         />
+                         </Group>
                     </div>
                </Card>
                <Card className={classes.card}>
@@ -71,10 +89,10 @@ export default function Formation() {
                          Next.js étant qualifié de framework React 
                          pour la production, il est devenu évident...
                     </Text>
-                    <div>
+                    <div className={classes.action}>
                          <Button
                               onClick={() => navigate('/formation/detail')}
-                              fullWidth
+                              w="70%"
                               styles={(theme) => ({
                                    root: {
                                    backgroundColor: "gray",
@@ -86,6 +104,19 @@ export default function Formation() {
                          >
                               Regarder le cours
                          </Button>
+                         <Group>
+                              <RingProgress
+                              size={65}
+                              roundCaps
+                              thickness={4}
+                              sections={[{ value: 10, color: "orange" }]}
+                              label={
+                                   <Center>
+                                        10%
+                                   </Center>
+                              }
+                         />
+                         </Group>
                     </div>
                </Card>
                <Card className={classes.card}>
@@ -99,10 +130,10 @@ export default function Formation() {
                          Laravel est un puissant Cadre(Framework) PHP MVC, 
                          conçu pour les développeurs...
                     </Text>
-                    <div>
+                    <div className={classes.action}>
                          <Button
                               onClick={() => navigate('/formation/detail')}
-                              fullWidth
+                              w="70%"
                               styles={(theme) => ({
                                    root: {
                                    backgroundColor: "gray",
@@ -114,6 +145,19 @@ export default function Formation() {
                          >
                               Regarder le cours
                          </Button>
+                         <Group>
+                              <RingProgress
+                              size={65}
+                              roundCaps
+                              thickness={4}
+                              sections={[{ value: 0, color: "orange" }]}
+                              label={
+                                   <Center>
+                                        0%
+                                   </Center>
+                              }
+                         />
+                         </Group>
                     </div>
                </Card>
                {/* <Card className={classes.card} >

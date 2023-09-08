@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import login from "/assets/login.jpg"
 import image1 from "/assets/connexion.jpg"
 import { createStyles, SimpleGrid, Card, rem, Button, Text } from '@mantine/core';
 import { useNavigate } from "react-router-dom"
 import { BiChevronRight } from "react-icons/bi"
+import axios from "axios";
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -24,10 +25,39 @@ const useStyles = createStyles((theme) => ({
       },
 }));
 
+
 export default function Module() {
 
     const { classes } = useStyles();
     const navigate = useNavigate()
+
+    const [modules, setModules] = useState([])
+
+    useEffect(() => {
+         (async function() {
+
+              try {
+                   const { data } = await axios.get('/api/modules')
+                   setModules(data.data)
+                   
+              } catch (error) {
+                   console.log(error)
+              }
+
+         })()
+
+    }, [])
+
+    const deletModule = async(id) => {
+
+          try {
+               const { data } = await axios.delete(`/api/delete-module/${id}`)
+               console.log(data.message)
+               alert("successfully")
+          } catch (error) {
+               console.log(error)
+          }
+    }
 
     return (
         <div className="playlist-page">
@@ -56,180 +86,60 @@ export default function Module() {
                 </div>
             </div>
             <SimpleGrid cols={3} m='1em' breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
+            {
+               modules.map((module, index) => (
+                    <Card className={classes.card} key={index}>
+                         <div className="coverCardFormation">
+                              <img src={`http://localhost:5000/images/${module.image}`} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                         </div>
+                         <div className='titre-formation'>
+                              <p>{module.nom}</p>
+                         </div>
+                         <div>
                          <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
+                                   onClick={() => deletModule(module._id)}
+                                   rightIcon={<BiChevronRight size={rem(28)} />}
+                                   mt="0.7em"
+                                   fullWidth
+                                   styles={(theme) => ({
+                                        root: {
+                                        backgroundColor: "green",
+                                             '&:not([data-disabled])': theme.fn.hover({
+                                                  backgroundColor: '#008000',
+                                        }),
                                         },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
-                         <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
+                                        rightIcon: {
+                                        marginLeft: "0.1em",
+                                             },
+                                   })}
+                              >
+                                   Supprimer le module
+                              </Button>
+                         </div>
+                         <div>
+                              <Button
+                                   onClick={() => navigate('/module/cours')}
+                                   rightIcon={<BiChevronRight size={rem(28)} />}
+                                   mt="0.7em"
+                                   fullWidth
+                                   styles={(theme) => ({
+                                        root: {
+                                        backgroundColor: "orange",
+                                             '&:not([data-disabled])': theme.fn.hover({
+                                                  backgroundColor: '#ff8000',
+                                        }),
                                         },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
-                         <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
-                                   },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
-                         <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
-                                        },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
-                         <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
-                                        },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Authentification Next.JS/Laravel</p>
-                    </div>
-                    <div>
-                         <Button
-                              onClick={() => navigate('/module/cours')}
-                              rightIcon={<BiChevronRight size={rem(28)} />}
-                              mt="0.7em"
-                              fullWidth
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "orange",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#ff8000',
-                                   }),
-                                   },
-                                   rightIcon: {
-                                   marginLeft: "0.1em",
-                                   },
-                              })}
-                         >
-                              Voir la playlist
-                         </Button>
-                    </div>
-               </Card>
+                                        rightIcon: {
+                                        marginLeft: "0.1em",
+                                             },
+                                   })}
+                              >
+                                   Voir les cours
+                              </Button>
+                         </div>
+                    </Card>
+               ))
+            }
           </SimpleGrid>
         </div>
     )

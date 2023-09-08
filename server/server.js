@@ -1,18 +1,25 @@
-const app = require("./app");
-const dotenv = require("dotenv");
-const cors = require("cors");	
-const http = require("node:http");
+import dotenv from "dotenv"
+import cors from "cors"	
+import router from "./routes/router.js"
+import mongoose from "mongoose"
+import express from 'express'
+import morgan from 'morgan'
 
-// ORM javascript comuniquer avec ma bd 
-const mongoose = require("mongoose");
+// Config
+const app = express();;
 
 const corsOptions ={
   origin:'http://localhost:5173', 
-  credentials: true,            //access-control-allow-credentials:true
+  credentials: true,
   optionSuccessStatus:200,
 }
-
+app.use('/images', express.static('uploads/modules'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("dev"));
 app.use(cors(corsOptions));
+// route prefix
+app.use("/api", router);
 
 
 // config environment
@@ -20,11 +27,9 @@ dotenv.config()
 
 // VARIABLES
 const PORT = process.env.PORT || 5000;
-const HOSTNAME= process.env.HOSTNAME || "127.0.0.1";
-const server = http.createServer(app);
+// const HOSTNAME= process.env.HOSTNAME || "127.0.0.1";
+// const server = http.createServer(app);
 
-// route prefix
-app.use("", require("./routes/routes"));
 
 // DATABASE
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -33,9 +38,9 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
-  });
+});
 
 // RUN SERVER
-server.listen(PORT, HOSTNAME, () => {
+app.listen(PORT, () => {
     console.log('Starting server....')
 })

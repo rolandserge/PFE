@@ -1,12 +1,13 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
+
 const moduleSchema = new mongoose.Schema({
     nom : {
         type: String,
         required: true
     },
     departement : {
-        type: Number,
-        required: true
+        type: mongoose.Types.ObjectId,
+        ref: "Departement"
     },
     image : {
         type: String,
@@ -18,4 +19,6 @@ const moduleSchema = new mongoose.Schema({
         default: Date.now()
     }
 })
-module.exports = mongoose.model("Module", moduleSchema)
+const module = mongoose.model("Module", moduleSchema)
+
+export default module

@@ -1,0 +1,70 @@
+// Variables
+$primary-color: #007bff;
+$font-family: 'Arial', sans-serif;
+$base-font-size: 16px;
+
+// Mixin pour les boutons
+@mixin button-style {
+  background-color: $orange;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($orange, 10%);
+  }
+}
+.container-cours {
+    border: 1px solid;
+}
+// Styles pour le formulaire
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: $font-family;
+  font-size: $base-font-size;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  // Styles pour les boutons
+  button[type="button"] {
+    @include button-style;
+  }
+
+  button[type="submit"] {
+    @include button-style;
+    margin-top: 20px;
+  }
+
+  // Styles pour les champs de chapitre et de vidéo
+  .chapter,
+  .video {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+}
