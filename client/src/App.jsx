@@ -15,6 +15,8 @@ import CoursModule from './pages/Module/coursModule';
 import Register from './pages/Utilisateur/register';
 import Utilisateurs from './pages/Utilisateur';
 import CreateDepartement from './pages/Departement/createDepartement';
+import Index from './pages/Reunion';
+import Meet from './pages/Reunion/meet';
 
 
   const router = createBrowserRouter([
@@ -43,7 +45,7 @@ import CreateDepartement from './pages/Departement/createDepartement';
           element: <Calendrier />
         },
         {
-          path: '/formation/:detail',
+          path: '/formation/:id',
           element: <DetailFormation />
         },
         {
@@ -77,6 +79,14 @@ import CreateDepartement from './pages/Departement/createDepartement';
         {
           path: "/creer-departement",
           element: <CreateDepartement />
+        },
+        {
+          path: "/reunion",
+          element: <Index />
+        },
+        {
+          path: "/reunion/:id",
+          element: <Meet />
         }
       ],
     }

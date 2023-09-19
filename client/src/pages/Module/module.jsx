@@ -5,6 +5,7 @@ import { createStyles, SimpleGrid, Card, rem, Button, Text } from '@mantine/core
 import { useNavigate } from "react-router-dom"
 import { BiChevronRight } from "react-icons/bi"
 import axios from "axios";
+import { useGetAllModulesQuery } from "../../slices/moduleApiSlice";
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -33,20 +34,14 @@ export default function Module() {
 
     const [modules, setModules] = useState([])
 
+    const { data } = useGetAllModulesQuery()
+
     useEffect(() => {
-         (async function() {
 
-              try {
-                   const { data } = await axios.get('/api/modules')
-                   setModules(data.data)
-                   
-              } catch (error) {
-                   console.log(error)
-              }
-
-         })()
-
-    }, [])
+          if (data) {
+            setModules(data.data);
+          }
+    }, [data])
 
     const deletModule = async(id) => {
 
@@ -70,11 +65,12 @@ export default function Module() {
                     <Button
                         onClick={() => navigate('/creer-module')}
                         fullWidth
+                        className="bg-black"
                         mt="0.6em"
                         h="6.3vh"
                         styles={(theme) => ({
                             root: {
-                                backgroundColor: "gray",
+                                backgroundColor: "#000",
                                 '&:not([data-disabled])': theme.fn.hover({
                                     backgroundColor: '#000',
                                 }),
@@ -121,6 +117,7 @@ export default function Module() {
                                    onClick={() => navigate('/module/cours')}
                                    rightIcon={<BiChevronRight size={rem(28)} />}
                                    mt="0.7em"
+                                   className="bg-[#ff8000]"
                                    fullWidth
                                    styles={(theme) => ({
                                         root: {

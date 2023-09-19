@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
    
 }));
 
-export default function Formation() {
+export default function Formation({cours}) {
 
      const { classes } = useStyles();
 
@@ -38,128 +38,55 @@ export default function Formation() {
 
      return (
           <SimpleGrid cols={3} m='1em' breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Prise en main de node js</p>
-                    </div>
-                    <Text className={classes.title}>
-                         Node JS est une technologie assez facile à prendre en main, notamment grâce aux...
-                    </Text>
-                    <div className={classes.action}>
-                         <Button
-                              onClick={() => navigate('/formation/detail')}
-                              w="70%"
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "gray",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#000',
-                                   }),
-                                   },
-                                   })}
-                         >
-                              Regarder le cours
-                         </Button>
-                         <Group>
-                              <RingProgress
-                              size={65}
-                              roundCaps
-                              thickness={4}
-                              sections={[{ value: 50, color: "orange" }]}
-                              label={
-                                   <Center>
-                                        50%
-                                   </Center>
+          {
+               cours.map((cour, index) => (
+
+
+                    <Card className={classes.card} key={index}>
+                         <div className="coverCardFormation">
+                              <img src={cour.thumbnail.url} alt={"Image d'illustration de la formation"} className="coverFormation" />
+                         </div>
+                         <div className='titre-formation'>
+                              <p>{cour.name}</p>
+                         </div>
+                         <Text className={classes.title}>
+                              {
+                                   cour.description
                               }
-                         />
-                         </Group>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Prise en main de Next.js 13</p>
-                    </div>
-                    <Text className={classes.title}>
-                         Next.js étant qualifié de framework React 
-                         pour la production, il est devenu évident...
-                    </Text>
-                    <div className={classes.action}>
-                         <Button
-                              onClick={() => navigate('/formation/detail')}
-                              w="70%"
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "gray",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#000',
-                                   }),
-                                   },
-                              })}
-                         >
-                              Regarder le cours
-                         </Button>
-                         <Group>
-                              <RingProgress
-                              size={65}
-                              roundCaps
-                              thickness={4}
-                              sections={[{ value: 10, color: "orange" }]}
-                              label={
-                                   <Center>
-                                        10%
-                                   </Center>
-                              }
-                         />
-                         </Group>
-                    </div>
-               </Card>
-               <Card className={classes.card}>
-                    <div className="coverCardFormation">
-                         <img src={login} alt={"Image d'illustration de la formation"} className="coverFormation" />
-                    </div>
-                    <div className='titre-formation'>
-                         <p>Prise en main de Laravel 9</p>
-                    </div>
-                    <Text className={classes.title}>
-                         Laravel est un puissant Cadre(Framework) PHP MVC, 
-                         conçu pour les développeurs...
-                    </Text>
-                    <div className={classes.action}>
-                         <Button
-                              onClick={() => navigate('/formation/detail')}
-                              w="70%"
-                              styles={(theme) => ({
-                                   root: {
-                                   backgroundColor: "gray",
-                                        '&:not([data-disabled])': theme.fn.hover({
-                                             backgroundColor: '#000',
-                                   }),
-                              },
-                              })}
-                         >
-                              Regarder le cours
-                         </Button>
-                         <Group>
-                              <RingProgress
-                              size={65}
-                              roundCaps
-                              thickness={4}
-                              sections={[{ value: 0, color: "orange" }]}
-                              label={
-                                   <Center>
-                                        0%
-                                   </Center>
-                              }
-                         />
-                         </Group>
-                    </div>
-               </Card>
+                         </Text>
+                         <div className={classes.action}>
+                              <Button
+                                   onClick={() => navigate(`/formation/${cour._id}`)}
+                                   w="70%"
+                                   className='bg-black'
+                                   styles={(theme) => ({
+                                        root: {
+                                        backgroundColor: "gray",
+                                             '&:not([data-disabled])': theme.fn.hover({
+                                                  backgroundColor: '#000',
+                                        }),
+                                        },
+                                        })}
+                              >
+                                   Regarder le cours
+                              </Button>
+                              <Group>
+                                   <RingProgress
+                                   size={65}
+                                   roundCaps
+                                   thickness={4}
+                                   sections={[{ value: 50, color: "orange" }]}
+                                   label={
+                                        <Center>
+                                             50%
+                                        </Center>
+                                   }
+                              />
+                              </Group>
+                         </div>
+                    </Card>
+               ))
+          }
                {/* <Card className={classes.card} >
                     <div className="coverCardFormation">
                          <img src={image1} alt={"Image d'illustration de la formation"} className="coverFormation" />

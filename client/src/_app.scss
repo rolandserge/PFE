@@ -1,3 +1,6 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @import "./styles/setting";
 
@@ -9,4 +12,5 @@
 @import "./styles/pages/Module/module";
 @import "./styles/pages/Cours/creerCours";
 // composant styles
-@import "./styles/components/formation"
+@import "./styles/components/formation";
+

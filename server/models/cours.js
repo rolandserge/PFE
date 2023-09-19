@@ -12,45 +12,57 @@ const courSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    image: {
-        type: String,
+    thumbnail: {
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String
+        }
     },
-    module : {
+    modules : {
         type: mongoose.Types.ObjectId,
         ref: "Module"
     },
-    content: [
-        {
-            chapiters : [
-                {
-                    chapterName: {
-                        type: String
-                    },
-                    videoUrl: {
-                        type: String,
-                    },
-                    status: {
-                        type: Boolean,
-                        default: false
-                    },
-                    ressources: [
-                        {
-                            fileName: {
-                                type: String,
-                            },
-                            fileType: {
-                                type: String
-                            },
-                            fileLink: {
-                                type: String
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-})
+    courseData : [
+            {   
+                videoSection: {
+                    type: String
+                },
+                title: {
+                    type: String
+                },
+                videoUrl: {
+                    type: String,
+                },
+                status: {
+                    type: Boolean,
+                    default: false
+                },
+                description: {
+                    type: String
+                },
+                links: [
+                    {
+                        title: {
+                            type: String,
+                        },
+                        url: {
+                            type: String
+                        },
+                        fileType: {
+                            type: String,
+                            default: "Type fichier"
+                        },
+                    }
+                ]
+            }
+        ],
+    },
+    {
+        timestamps: true
+    }
+)
 
 const cours = mongoose.model('Cours', courSchema)
 

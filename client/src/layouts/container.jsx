@@ -114,7 +114,7 @@ const data = [
      { link: '/creer-departement', label: 'Departement', icon: BiArchive },  
      { link: '/module', label: 'Module', icon: BiArchive },
      { link: '/utilisateur', label: 'Utilisateur', icon: FaUsers },
-     { link: '#', label: 'Reunions', type: "app", icon: CiRainbow },
+     { link: '/reunion', label: 'Reunions', type: "app", icon: CiRainbow },
 ];
 
 

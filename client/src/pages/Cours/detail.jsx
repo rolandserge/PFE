@@ -1,13 +1,22 @@
 import { Avatar, Text, Group } from '@mantine/core';
 import User from "/assets/utilisateur.png"
-import { PiVideoLight } from "react-icons/pi"
-import { BsCalendar3, BsCheck2Circle  } from "react-icons/bs"
+import { BsCalendar3, BsCheck2Circle, BsCheckLg  } from "react-icons/bs"
 import video from "/assets/video.mp4"
-import { Accordion, List, rem, ThemeIcon} from '@mantine/core';
+import { useParams } from 'react-router-dom';
+import { useGetCourseContentQuery } from '../../slices/coursesApi';
+import CoursePlayer from '../../components/Course/CoursePlayer';
+import { useState } from 'react';
+import CourseContentList from '../../components/Course/CourseContentList';
 
 
 
 export default function DetailFormation() {
+
+     const { id } = useParams()
+
+     const { data } = useGetCourseContentQuery(id)
+
+     const [activeVideo, setActiveVideo] = useState(0)
 
      return (
           <div>
@@ -28,13 +37,10 @@ export default function DetailFormation() {
                               </Group>
                          </div> */}
                          <div className="video-container">
-                              <div className="title-formation">
-                                   <p>Prise en main de node.js</p>
-                              </div>
                               <div className="video-card">
-                                   <video width="100%" style={{ borderRadius: "4px"}} height="100%" controls muted>
-                                        <source src={video} type="video/mp4" />
-                                   </video>
+                                   <CoursePlayer 
+                                        videoUrl={data && data.data[activeVideo]?.videoUrl}
+                                   />
                               </div>
                               <div className="publier-div">
                                    <p><BsCalendar3 /> Publié le 29 aout 2023 à 15h11</p>
@@ -46,171 +52,23 @@ export default function DetailFormation() {
                                         </div>
                                         <div className="contenu-description">
                                              <p>
-                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                                  Cumque, nisi laudantium sed modi dolorem dicta saepe dolor 
-                                                  reprehenderit repellendus expedita soluta! Vel dicta voluptates 
-                                                  sapiente, placeat eius assumenda cupiditate autem!
-                                                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                                  Enim, obcaecati?
+                                                  {
+                                                       data && data.data[activeVideo].description
+                                                  }
                                              </p>
                                         </div>
                                    </div>
-                                   {/* <div className="container-objectif">
-                                        <div className="title">
-                                             <p>Objectifs</p>
-                                        </div>
-                                        <div className="contenu-objectif">
-                                             <List
-                                                  spacing="1em"
-                                                  m="1em 0"
-                                                  border= "1px solid"
-                                                  center
-                                                  icon={
-                                                  <ThemeIcon color="teal" size={24} radius="xl">
-                                                       <BsCheck2Circle size="1rem" />
-                                                  </ThemeIcon>
-                                                  }
-                                             >
-                                                  <List.Item>Clone or download repository from GitHub</List.Item>
-                                                  <List.Item>Install dependencies with yarn</List.Item>
-                                                  <List.Item>To start development server run npm start command</List.Item>
-                                                  <List.Item>Run tests to make sure your changes do not break the build</List.Item>
-                                             </List>
-                                        </div>
-                                   </div> */}
                               </div>
                          </div>
                     </div>
                     <section>
                          <span className="titre">Contenu du cours</span>
                               <div className="card-content">
-                                   <Accordion 
-                                        styles={{
-                                             item: {
-                                                  // styles added to all items
-                                                  background: "white",
-                                                  border: `${rem(1)} solid #ededed`,
-                                                  fontSize: "0.9em",
-                                                  cursor: "pointer",
-                                                 borderRadius: "4px",
-                                             },
-
-                                             chevron: {
-                                                  // styles added to chevron when it should rotate
-                                                  fontWeight: "bold",
-                                                  '&[data-rotate]': {
-                                                  transform: 'rotate(-90deg)',
-                                                  },
-                                             },
-                                             }}
-                                        transitionDuration={100}
-                                   >
-                                        <Accordion.Item value="customization">
-                                             <Accordion.Control fw="bold" color="red">Introduction</Accordion.Control>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Presentation</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Les prérequis </p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Apercu de la formation</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                        </Accordion.Item>
-                                        <Accordion.Item value="flexibility">
-                                             <Accordion.Control>Installation de node.js</Accordion.Control>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                        </Accordion.Item>
-                                        <Accordion.Item value="Titre de la formation">
-                                             <Accordion.Control>Les bases de node.js</Accordion.Control>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance</p>         
-                                                  </div>
-                                             </Accordion.Panel>
-                                             <Accordion.Panel>
-                                                  <div className="accordeon">
-                                                       <div className="video-image">
-                                                            <PiVideoLight fontSize="1.5em"/>
-                                                       </div>
-                                                       <p>Configure components appearance and behavior with vast amount</p>
-                                                  </div>
-                                             </Accordion.Panel>
-                                        </Accordion.Item>
-                                   </Accordion>
+                                   <CourseContentList 
+                                        data={data && data.data}
+                                        activeVideo={activeVideo}
+                                        setActiveVideo={setActiveVideo}
+                                   />
                               </div>
                     </section>
                </div>

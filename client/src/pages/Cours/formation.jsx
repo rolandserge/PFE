@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Formation from "../../components/formation";
 import { createStyles, Anchor, Group, rem } from '@mantine/core';
+import { useGetUsersAllCoursesQuery } from '../../slices/coursesApi';
 
 
 const HEADER_HEIGHT = rem(48);
@@ -75,6 +76,7 @@ export default function FormationPage() {
 
      const { classes, cx } = useStyles();
      const [active, setActive] = useState(0);
+     const [cours, setCours] = useState([]);
 
 
      const mainItems = mainLinks.map((item, index) => (
@@ -89,8 +91,16 @@ export default function FormationPage() {
           >
             {item.label}
           </Anchor>
-        ));
+     ));
+     
+     const { data } = useGetUsersAllCoursesQuery()
 
+     useEffect(() => {
+          if(data) {
+               setCours(data.data)
+          }
+     }, [data])
+     
      return (
           <div>
                <div className="categorie-containers">
@@ -103,7 +113,7 @@ export default function FormationPage() {
                     </div>
                </div>
                <div className="formation-all">
-                    <Formation />
+                    <Formation cours={cours} />
                </div>
           </div>
      )

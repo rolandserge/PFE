@@ -156,7 +156,7 @@ export default function Dashboad() {
                               <div className={classes.titreFormation}>
                                    <p>Mes cours</p>
                               </div>
-                              <Formation />
+                              {/* <Formation /> */}
                          </div>
                     </section>
                     {/* <aside className="side-dashbord">
