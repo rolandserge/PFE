@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import { Loader } from '@mantine/core';
 import { DyteMeeting, provideDyteDesignSystem } from "@dytesdk/react-ui-kit";
 import { useDyteClient } from "@dytesdk/react-web-core";
 import { useCreateMeetingMutation, useJoinMeetingMutation } from "../../slices/meetApiSlice";
+import { useNavigate } from "react-router-dom";
 
 const Meet = () => {
 
@@ -9,6 +11,7 @@ const Meet = () => {
 	const [meeting, initMeeting] = useDyteClient();
 	const [userToken, setUserToken] = useState();
 	const [meetingId, setMeetingId] = useState();
+	const navigate = useNavigate()
     const [ createMeeting ] = useCreateMeetingMutation()
     const [ joinMeeting ] = useJoinMeetingMutation()
 
@@ -22,12 +25,12 @@ const Meet = () => {
 
 	useEffect(() => {
 		const id = window.location.pathname.split("/")[2];
-		// if (!id) {
-		// 	createMeetingId();
-		// } else {
+		if (!id) {
+			navigate('/acceuil')
+		} else {
 			setMeetingId(id);
-		// }
-	}, []);
+		}
+	}, [navigate]);
 
 	const joinMeetingId = async () => {
 
@@ -66,7 +69,9 @@ const Meet = () => {
 			{userToken && meetingId ? (
 				<DyteMeeting mode="fill" meeting={meeting} ref={meetingEl} />
 			) : (
-				<div>Loading...</div>
+				<div className="h-[80vh] flex justify-center items-center">
+					<Loader size={60} color="orange" />
+				</div>
 			)}
 		</div>
 	);

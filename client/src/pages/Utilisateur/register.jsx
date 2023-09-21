@@ -132,7 +132,7 @@ export default function Register() {
                     </Input>
                 </div>
                 <div>
-                    <Button type="submit" h="6.5vh" fz="1em" color="orange" fullWidth>
+                    <Button type="submit" className='bg-[#ff7f00]' h="6.5vh" fz="1em" color="orange" fullWidth>
                         Ajouter l'utilisateur
                     </Button>
                 </div>

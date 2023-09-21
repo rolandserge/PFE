@@ -5,6 +5,7 @@ import router from "./routes/router.js"
 import mongoose from "mongoose"
 import express from 'express'
 import morgan from 'morgan'
+import cookieParser from 'cookie-parser';
 import dyteAPI from './utils/dyteApi.js';
 import Meet from './models/meet.js';
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
+app.use(cookieParser());
 // route prefix
 app.use("/api", router);
 

@@ -70,6 +70,7 @@ export default function CreerFormation() {
                          <div className="add-formation">
                               <Button
                                    onClick={() => navigate("/creer-formation/page")}
+                                   className="bg-black"
                                    rightIcon={<BiChevronRight size={rem(28)} />}
                                    styles={(theme) => ({
                                         root: {

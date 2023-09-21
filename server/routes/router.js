@@ -54,7 +54,7 @@ router.get("/meet", coursController.getMeetingId)
 
 
 // departement routes listes
-router.get("/departements", authorizeRoles('Administrateur'), protect, departementController.listeDepartement)
+router.get("/departements", departementController.listeDepartement)
 router.post('/add-departement', authorizeRoles('Administrateur'), protect, departementController.ajouterDepartement)
 
 export default router

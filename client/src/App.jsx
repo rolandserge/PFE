@@ -15,8 +15,8 @@ import CoursModule from './pages/Module/coursModule';
 import Register from './pages/Utilisateur/register';
 import Utilisateurs from './pages/Utilisateur';
 import CreateDepartement from './pages/Departement/createDepartement';
-import Index from './pages/Reunion';
 import Meet from './pages/Reunion/meet';
+import UserAuth from './hooks/userAuth';
 
 
   const router = createBrowserRouter([
@@ -26,7 +26,7 @@ import Meet from './pages/Reunion/meet';
     },
     {
    
-      element: <Home />,
+      element: <UserAuth element={<Home />} />,
       children: [
         {
           path: "/acceuil",
@@ -79,10 +79,6 @@ import Meet from './pages/Reunion/meet';
         {
           path: "/creer-departement",
           element: <CreateDepartement />
-        },
-        {
-          path: "/reunion",
-          element: <Index />
         },
         {
           path: "/reunion/:id",

@@ -5,6 +5,9 @@ import Cover from "/assets/connexion.jpg"
 import Formation from "../components/formation";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { MdOutlineLibraryBooks } from "react-icons/md"
+import { useGetUsersAllCoursesQuery } from '../slices/coursesApi';
+import { useEffect, useState } from 'react';
 // import Calendrier from '../components/calendrier';
 
 
@@ -15,6 +18,7 @@ const useStyles = createStyles((theme) => ({
      value: {
        fontSize: rem(24),
        fontWeight: 700,
+       color: "orange",
        lineHeight: 1,
      },
    
@@ -44,15 +48,22 @@ const useStyles = createStyles((theme) => ({
 export default function Dashboad() {
 
      const { classes } = useStyles();
+     const [course, setCourse] = useState([])
      const { userInfo } = useSelector((state) => state.auth)
+     const { data } = useGetUsersAllCoursesQuery()
+
+     useEffect(() => {
+          if(data) {
+               setCourse(data.data)
+          }
+     }, [data])
 
      return (
           <div className='dashbord'>
-               <div className="container-dashbord">
                     <section>
                          <div className="statistiques">
                               {
-                                   userInfo.role === "Formateur" ?
+                                   userInfo.role === "Formateur" || userInfo.role === "Administrateur" ?
 
                                         <div className={classes.root}>
                                              <SimpleGrid
@@ -67,13 +78,13 @@ export default function Dashboad() {
                                                             <Text size="xs" color="dimmed" className={classes.title}>
                                                                  Cours
                                                             </Text>
-                                                            <BiArchive className={classes.icon} size="1.4rem" stroke={1.5} />
+                                                            <MdOutlineLibraryBooks className={classes.icon} size="1.4rem" stroke={1.5} />
                                                        </Group>
                                                        <Group align="flex-end" spacing="xs" mt={25}>
                                                             <Text className={classes.value}>20</Text>
                                                        </Group>
                                                        <Text fz="xs" c="dimmed" mt={7}>
-                                                            Compared to previous
+                                                            Nombre de cours
                                                        </Text>
                                                   </Paper>
                                                   <Paper withBorder p="md" radius="md">
@@ -87,7 +98,7 @@ export default function Dashboad() {
                                                             <Text className={classes.value}>5</Text>
                                                        </Group>
                                                        <Text fz="xs" c="dimmed" mt={7}>
-                                                            Compared to previous month
+                                                            Nombre de formateur
                                                        </Text>
                                                   </Paper>
                                                   <Paper withBorder p="md" radius="md">
@@ -101,7 +112,7 @@ export default function Dashboad() {
                                                             <Text className={classes.value}>15</Text>
                                                        </Group>
                                                        <Text fz="xs" c="dimmed" mt={7}>
-                                                            Compared to previous month
+                                                            Nombre d'apprenant
                                                        </Text>
                                                   </Paper>
                                              </SimpleGrid>
@@ -125,7 +136,7 @@ export default function Dashboad() {
                                                   </div>
                                                   <div className='navigation'>
                                                        <div>
-                                                            <Link to="#" className='retour-cours'>Retour au cours</Link>
+                                                            <Link to="#" className='retour-cours'>Aller au cours</Link>
                                                        </div>
                                                        <div className='progession'>
                                                             <div>
@@ -156,15 +167,9 @@ export default function Dashboad() {
                               <div className={classes.titreFormation}>
                                    <p>Mes cours</p>
                               </div>
-                              {/* <Formation /> */}
+                              <Formation cours={course} />
                          </div>
                     </section>
-                    {/* <aside className="side-dashbord">
-                         <div className={classes.calendrierContainer}>
-                              <Calendrier />
-                         </div>
-                    </aside> */}
-               </div>
           </div>
      )
 }

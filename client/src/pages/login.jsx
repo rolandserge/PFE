@@ -36,7 +36,6 @@ export default function Login() {
           if(userInfo) {
                navigate('/acceuil')
           }
-
      }, [userInfo, navigate])
 
      const userLogin = async (event) => {
@@ -73,7 +72,7 @@ export default function Login() {
                                         <PasswordInput label="Mot de passe" name="password" value={data.password} onChange={handleChange} placeholder="Votre mot de passe" required mt="md" />
                                         <Group position="apart" mt="lg">
                                         </Group>
-                                        <Button fullWidth mt="xl" disabled={isLoading} type="submit" color='yellow'>
+                                        <Button fullWidth className="bg-[#ff7f00]" mt="xl" disabled={isLoading} type="submit" color='yellow'>
                                              Se connecter
                                         </Button>
                                    </Paper>
