@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSnackbar } from 'notistack';
 import { Dropzone } from '@mantine/dropzone';
@@ -11,12 +11,20 @@ export default function CreateModule() {
 
     const [image, setImage] = useState('')
     const [data, setData] = useState("")
+    const [depart, setDepart] = useState([])
     const [departement, setDepartement] = useState('')
     const { enqueueSnackbar } = useSnackbar()
 
     const handleChange = (event) => {
         setData(event.target.value);
     };
+
+    useEffect(() => {
+        (async () => {
+            const { data } = await axios.get('/api/departements')
+            setDepart(data.data)
+        })()
+    }, [])
 
     const AddModule = async(e) => {
 
@@ -31,10 +39,10 @@ export default function CreateModule() {
             
             try {
 
-                const reponse = await axios.post('/api/add-module', formData, { headers: {
+                const response = await axios.post('/api/add-module', formData, { headers: {
                     'Content-Type': 'multipart/form-data'
                 }})
-                console.log(reponse)
+                console.log(response)
 
                 alert('success')
 
@@ -72,7 +80,11 @@ export default function CreateModule() {
                     <div>
                         <Input component="select" name="departement" value={departement} onChange={e => setDepartement(e.target.value)} required rightSection={<IconChevronDown size={14} stroke={1.5} />}>
                             <option value="">Veillez choisir le département du module</option>
-                            <option value="10">Departement Informatique</option>
+                            {
+                                depart && depart.map((data, index) => (
+                                    <option value={data._id} key={index}>{data.libele}</option>
+                                ))
+                            }
                         </Input>
                     </div>
                     <div>
@@ -100,7 +112,14 @@ export default function CreateModule() {
                         </Dropzone>
                     </div>
                     <div>
-                        <Button type="submit" h="6.5vh" fz="1em" color="orange" fullWidth>
+                        <Button 
+                            type="submit" 
+                            h="6.5vh" 
+                            fz="1em" 
+                            color="orange" 
+                            className="bg-[#ff7f00]"
+                            fullWidth
+                        >
                             Ajouter le module
                         </Button>
                     </div>

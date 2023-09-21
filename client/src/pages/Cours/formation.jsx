@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Formation from "../../components/formation";
 import { createStyles, Anchor, Group, rem } from '@mantine/core';
 import { useGetUsersAllCoursesQuery } from '../../slices/coursesApi';
+import { useGetAllModulesQuery } from '../../slices/moduleApiSlice';
 
 
 const HEADER_HEIGHT = rem(48);
@@ -49,39 +50,18 @@ const useStyles = createStyles((theme) => ({
      },
 }));
 
-const mainLinks = [
-     {
-          link: "#",
-          label: "Tous"
-     },
-     {
-          link: "#",
-          label: "Node.js Complet"
-     },
-     {
-          link: "#",
-          label: "Next.js Complet"
-     },
-     {
-          link: "#",
-          label: "Laravel 10 Complet"
-     },
-     {
-          link: "#",
-          label: "React.js Complet"
-     },
-]
-
 export default function FormationPage() {
 
      const { classes, cx } = useStyles();
-     const [active, setActive] = useState(0);
+     const [active, setActive] = useState(-1);
      const [cours, setCours] = useState([]);
+     const [modules, setModules] = useState([]);
+     const { currentData } = useGetAllModulesQuery()
+     const { data } = useGetUsersAllCoursesQuery()
 
 
-     const mainItems = mainLinks.map((item, index) => (
+     const mainItems = modules && modules.map((item, index) => (
           <Anchor
-            href={item.link}
             key={item.label}
             className={cx(classes.mainLink, { [classes.linkActive]: index === active })}
             onClick={(event) => {
@@ -89,17 +69,17 @@ export default function FormationPage() {
               setActive(index);
             }}
           >
-            {item.label}
+            {item.nom}
           </Anchor>
      ));
      
-     const { data } = useGetUsersAllCoursesQuery()
 
      useEffect(() => {
-          if(data) {
+          if(data && currentData) {
                setCours(data.data)
+               setModules(currentData.data)
           }
-     }, [data])
+     }, [data, currentData]);
      
      return (
           <div>
@@ -107,6 +87,15 @@ export default function FormationPage() {
                     <div className={classes.header}>
                          <div className={classes.links}>
                               <Group spacing={30} position="left">
+                                   <Anchor
+                                        className={cx(classes.mainLink, { [classes.linkActive]: -1 === active })}
+                                        onClick={(event) => {
+                                             event.preventDefault();
+                                             setActive(-1);
+                                        }}
+                                   >
+                                        Tous
+                                   </Anchor>
                                    {mainItems}
                               </Group>
                          </div>

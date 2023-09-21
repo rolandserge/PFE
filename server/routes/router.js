@@ -21,16 +21,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }).single('image')
  
 
-var storageC = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './uploads/cours')
-    },
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
-    }
-})
-    
-var uploads = multer({ storage: storageC }).single('thumbnail')
 // authentification routes liste
 router.post('/register', userController.register)
 router.post('/login', userController.login)
@@ -38,7 +28,7 @@ router.post('/logout', protect, userController.logoutUser)
 
 // modules routes listes
 router.get('/get-modules', moduleController.listeModule)
-router.post('/add-module', upload, protect, authorizeRoles('administrateur'), moduleController.ajouterModule)
+router.post('/add-module', upload, moduleController.ajouterModule)
 router.put('/update-module', moduleController.modifierModule)
 router.delete('/delete-module/:id', moduleController.supprimerModule)
     

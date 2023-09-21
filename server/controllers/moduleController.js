@@ -7,6 +7,7 @@ const moduleController = {
         try {
 
             const { nom, departement } = req.body;
+
             const image = req.file.filename;
 
             const newModule = new Module({
@@ -18,8 +19,8 @@ const moduleController = {
 
             res.status(200).send({ success: true, message: "Module creer avec succes", data: data });
 
-
         } catch (error) {
+            
             res.status(500).json({message: 'Erreur grave de serveur'})
         }
     },
